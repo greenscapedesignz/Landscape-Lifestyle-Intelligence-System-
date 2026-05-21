@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenscape Designz | Landscape Intelligence</title>
+  <style>
+    /* Premium Architectural Styling & Mobile Optimization */
+    :root { 
+      --primary: #1a202c; 
+      --accent: #2f855a; 
+      --bg: #f7fafc; 
+      --surface: #ffffff; 
+      --border: #e2e8f0; 
+      --danger: #e53e3e; 
+    }
+    
+    body { 
+      font-family: 'Helvetica Neue', sans-serif; 
+      background: var(--bg); 
+      color: var(--text-main); 
+      margin: 0; 
+      padding: 0; 
+    }
+    
+    /* Top Bar & Progress Engine */
+    .top-bar { 
+      position: sticky; 
+      top: 0; 
+      background: var(--primary); 
+      color: white; 
+      padding: 15px 20px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      z-index: 100; 
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    }
+    .brand { font-weight: 300; letter-spacing: 2px; }
+    .progress-text { font-size: 0.85em; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; }
+    .progress-bar-container { width: 100%; height: 4px; background: #2d3748; position: absolute; bottom: 0; left: 0; }
+    .progress-bar { height: 100%; background: var(--accent); width: 0%; transition: width 0.3s ease; }
+
+    .container { max-width: 850px; margin: 40px auto; padding: 0 20px; }
+    
+    .form-section { 
+      background: var(--surface); 
+      padding: 30px; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+      margin-bottom: 30px; 
+      border-top: 3px solid var(--primary); 
+      scroll-margin-top: 80px; 
+    }
+    .form-section h3 { margin-top: 0; font-weight: 400; border-bottom: 1px solid var(--border); padding-bottom: 12px; color: var(--primary); }
+    .form-group { margin-bottom: 24px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    
+    @media (max-width: 600px) {
+      .grid-2 { grid-template-columns: 1fr; gap: 0; }
+      .form-section { padding: 20px; }
+    }
+
+    label { display: block; font-size: 0.9em; font-weight: 600; margin-bottom: 8px; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; }
+    .val-display { color: var(--accent); font-weight: bold; }
+    
+    input[type="text"], input[type="email"], select, textarea { 
+      width: 100%; 
+      padding: 14px; 
+      border: 1px solid var(--border); 
+      border-radius: 4px; 
+      box-sizing: border-box; 
+      background: #fbfbfc; 
+      font-size: 1em; 
+    }
+    input:focus, textarea:focus { border-color: var(--accent); outline: none; background: #fff; }
+    textarea { min-height: 90px; resize: vertical; }
+    input[type="range"] { width: 100%; accent-color: var(--accent); margin-top: 5px; }
+
+    /* Chips */
+    .chip-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .chip { padding: 8px 16px; border: 1px solid var(--border); border-radius: 20px; cursor: pointer; font-size: 0.9em; user-select: none; transition: 0.2s; }
+    .chip.selected { background: var(--primary); color: white; border-color: var(--primary); }
+    #undesiredPlants .chip.selected { background: var(--danger); border-color: var(--danger); }
+
+    /* File Upload */
+    .file-drop-area { border: 2px dashed var(--border); padding: 40px 20px; text-align: center; background: #fafafa; border-radius: 8px; cursor: pointer; }
+    .file-drop-area:hover { border-color: var(--accent); }
+    .error-text { color: var(--danger); font-size: 0.85em; display: none; margin-top: 5px; }
+
+    /* Button */
+    button.submit-btn { width: 100%; padding: 18px; background: var(--primary); color: white; font-size: 1.15em; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; letter-spacing: 1px; transition: 0.3s; }
+    button.submit-btn:hover { background: var(--accent); }
+
+    /* Dynamic Display */
+    .dynamic-field { display: none; margin-top: 15px; padding: 20px; background: #f0fdf4; border-left: 4px solid var(--accent); border-radius: 4px; }
+    .dynamic-field.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Loaders and States */
+    #loaderOverlay, #successState { display: none; }
+    #loaderOverlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.95); z-index: 1000; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+    .spinner { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s infinite linear; margin-bottom: 25px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #successState { text-align: center; padding: 60px 20px; background: var(--surface); border-radius: 8px; margin: 40px auto; max-width: 800px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar with Progress Engine -->
+  <div class="top-bar">
+    <div class="brand">GREENSCAPE DESIGNZ</div>
+    <div class="progress-text" id="sectionProgress">SECTION 1 OF 6</div>
+    <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <!-- Loading State -->
+  <div id="loaderOverlay">
+    <div class="spinner"></div>
+    <h2 id="loaderText">Synthesizing RIBA Stage 0-1 Brief...</h2>
+    <p>Generating architectural PDF and securing intelligence layers.</p>
+  </div>
+
+  <!-- Main Form -->
+  <div class="container" id="formContainer">
+    
+    <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">Landscape Lifestyle & Intelligence Briefing<br><span style="font-size:0.8em; color:var(--accent);">Draft auto-saves as you type.</span></p>
+
+    <!-- 01. Metadata -->
+    <div class="form-section section-watch">
+      <h3>01 — Project & Client Metadata</h3>
+      <div class="form-group">
+        <label>Client Name *</label>
+        <input type="text" id="clientName" class="saveable">
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="clientEmail" class="saveable">
+          <div class="error-text" id="emailErr">Invalid email format</div>
+        </div>
+        <div class="form-group">
+          <label>Phone *</label>
+          <input type="text" id="clientPhone" class="saveable">
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Project Location</label>
+          <input type="text" id="projectLocation" class="saveable">
+        </div>
+        <div class="form-group">
+          <label>Typology</label>
+          <select id="projectType" class="saveable">
+            <option>Premium Villa</option>
+            <option>Penthouse</option>
+            <option>Farmhouse</option>
+            <option>Hospitality</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Architectural Firm</label>
+          <input type="text" id="architectName" class="saveable">
+        </div>
+        <div class="form-group">
+          <label>MEP Consultant</label>
+          <input type="text" id="mepName" class="saveable">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Site Area (Approx)</label>
+        <input type="text" id="siteArea" class="saveable" placeholder="E.g. 1 Acre / 4000 sq ft">
+      </div>
+    </div>
+
+    <!-- 02. Site -->
+    <div class="form-section section-watch">
+      <h3>02 — Site Intelligence</h3>
+      <div class="form-group">
+        <label>Slope / Contours</label>
+        <input type="text" id="siteSlope" class="saveable" placeholder="E.g., Flat, Steep drop to the north">
+      </div>
+      <div class="form-group">
+        <label>Soil Dynamics & Water</label>
+        <input type="text" id="siteSoil" class="saveable" placeholder="E.g., Red soil, waterlogging issues during monsoon">
+      </div>
+      <div class="form-group">
+        <label>Existing Ecology</label>
+        <input type="text" id="existingTrees" class="saveable" placeholder="E.g., Trees to retain, existing boulders">
+      </div>
+    </div>
+
+    <!-- 03. Behavior -->
+    <div class="form-section section-watch">
+      <h3>03 — Behavioral Calibration</h3>
+      <div class="form-group">
+        <label>Wellness Focus: <span id="wellVal" class="val-display">5</span>/10</label>
+        <input type="range" id="wellness" class="saveable" min="1" max="10" value="5" oninput="document.getElementById('wellVal').innerText=this.value">
+      </div>
+      <div class="form-group">
+        <label>Luxury Focus: <span id="luxVal" class="val-display">5</span>/10</label>
+        <input type="range" id="luxury" class="saveable" min="1" max="10" value="5" oninput="document.getElementById('luxVal').innerText=this.value">
+      </div>
+      
+      <div class="grid-2">
+        <div class="form-group">
+          <label>Are there Pets?</label>
+          <select id="hasPets" class="saveable" onchange="toggleDynamic('petLogic', this.value)">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+          <div id="petLogic" class="dynamic-field">
+            <label>Pet Specifics</label>
+            <input type="text" id="pets" class="saveable" placeholder="E.g., 2 Dogs, need durable lawn">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Elderly Residents?</label>
+          <select id="hasElderly" class="saveable" onchange="toggleDynamic('elderlyLogic', this.value)">
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+          </select>
+          <div id="elderlyLogic" class="dynamic-field">
+            <label>Mobility Needs</label>
+            <input type="text" id="elderly" class="saveable" placeholder="E.g., Wheelchair accessible paths">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Maintenance Tolerance</label>
+        <select id="maintenance" class="saveable">
+          <option>Ultra-Low (Automated)</option>
+          <option>Moderate (Weekly Gardener)</option>
+          <option>High (Dedicated Staff)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 04. Spatial -->
+    <div class="form-section section-watch">
+      <h3>04 — Spatial Programming</h3>
+      <div class="form-group">
+        <label>Ground Realm / Main Garden Aspirations</label>
+        <textarea id="groundFloor" class="saveable"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Upper Realm / Terrace Aspirations</label>
+        <textarea id="terrace" class="saveable"></textarea>
+      </div>
+    </div>
+
+    <!-- 05. Plants -->
+    <div class="form-section section-watch">
+      <h3>05 — Plant Intelligence</h3>
+      <div class="form-group">
+        <label>Landscape Character (Select multiple)</label>
+        <div class="chip-container" id="landscapeCharacter">
+          <div class="chip" onclick="toggleChip(this)">Tropical Modern</div>
+          <div class="chip" onclick="toggleChip(this)">Zen & Minimal</div>
+          <div class="chip" onclick="toggleChip(this)">Wild Ecology</div>
+          <div class="chip" onclick="toggleChip(this)">Structured Formal</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Undesired Elements (Exclude these)</label>
+        <div class="chip-container" id="undesiredPlants">
+          <div class="chip" onclick="toggleChip(this)">Thorny</div>
+          <div class="chip" onclick="toggleChip(this)">Toxic to Pets</div>
+          <div class="chip" onclick="toggleChip(this)">High Leaf Drop</div>
+          <div class="chip" onclick="toggleChip(this)">High Water Use</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06. Uploads -->
+    <div class="form-section section-watch">
+      <h3>06 — Architectural Uploads</h3>
+      <div class="file-drop-area" onclick="document.getElementById('projectFiles').click()">
+        <p><strong>Click to upload Plans & Photos</strong></p>
+        <p style="font-size: 0.85em;">PDF, JPG, PNG (Strict Max 5MB total)</p>
+        <div class="error-text" id="fileErr">Combined size exceeds 5MB limit. Please reduce file sizes.</div>
+      </div>
+      <input type="file" id="projectFiles" multiple style="display:none" onchange="checkFileSize(this)">
+      <div id="fileList" style="margin-top:10px; font-weight:bold; color:var(--accent); text-align:center;"></div>
+    </div>
+
+    <button class="submit-btn" onclick="submitBrief()">Generate RIBA Stage 0-1 Brief</button>
+  </div>
+
+  <!-- Success State -->
+  <div class="container" id="successState">
+    <h1 style="color:var(--accent);">Intelligence Synchronized</h1>
+    <h2 id="personaOutput" style="color:var(--primary); margin: 10px 0;">Premium Landscape Persona</h2>
+    <div style="background:var(--bg); padding:20px; border:1px solid var(--border); border-radius:6px; margin:30px auto; max-width:400px;">
+      <p style="margin:0; font-size:0.9em; text-transform:uppercase;">Official Reference</p>
+      <h2 id="refId" style="margin:5px 0 0 0; color:var(--primary);">GDZ-XXXX</h2>
+    </div>
+    <p>A structured RIBA Stage 0-1 PDF Brief has been generated and emailed to your inbox.</p>
+  </div>
+
+  <script>
+    // System Constants
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxu2t7LBGGNcXguSV4HGAS_BZFUiddtwm3AHZ0OeTvMqD_D_zdp1_rNuLbnotP9dUopnw/exec';
+    const SECURE_TOKEN = "GDZ-INTELLIGENCE-2026";
+    let isFileValid = true;
+
+    // 1. Progress Engine (Scroll Spy)
+    const sections = document.querySelectorAll('.section-watch');
+    const totalSections = sections.length;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          const index = Array.from(sections).indexOf(entry.target) + 1;
+          document.getElementById('sectionProgress').innerText = `SECTION ${index} OF ${totalSections}`;
+          document.getElementById('progressBar').style.width = `${(index / totalSections) * 100}%`;
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+
+    // 2. LocalStorage (Inputs + Chips)
+    const saveableInputs = document.querySelectorAll('.saveable');
+    
+    function saveDraft() {
+      const draft = {};
+      saveableInputs.forEach(el => draft[el.id] = el.value);
+      draft.chips = Array.from(document.querySelectorAll('.chip.selected')).map(c => c.innerText);
+      localStorage.setItem('gdz_draft_v4', JSON.stringify(draft));
+    }
+
+    saveableInputs.forEach(input => input.addEventListener('input', saveDraft));
+
+    function toggleChip(el) { 
+      el.classList.toggle('selected'); 
+      saveDraft(); 
+    }
+    
+    function toggleDynamic(id, val) {
+      document.getElementById(id).className = val === 'Yes' ? 'dynamic-field active' : 'dynamic-field';
+    }
+
+    window.onload = () => {
+      const saved = JSON.parse(localStorage.getItem('gdz_draft_v4'));
+      if (saved) {
+        saveableInputs.forEach(el => { if(saved[el.id]) el.value = saved[el.id]; });
+        document.getElementById('wellVal').innerText = saved.wellness || 5;
+        document.getElementById('luxVal').innerText = saved.luxury || 5;
+        if(saved.chips) {
+          document.querySelectorAll('.chip').forEach(c => {
+            if(saved.chips.includes(c.innerText)) c.classList.add('selected');
+          });
+        }
+        toggleDynamic('petLogic', document.getElementById('hasPets').value);
+        toggleDynamic('elderlyLogic', document.getElementById('hasElderly').value);
+      }
+    };
+
+    // 3. Strict File Size Control
+    function checkFileSize(input) {
+      const maxBytes = 5 * 1024 * 1024; // 5MB limit
+      let total = 0;
+      Array.from(input.files).forEach(f => total += f.size);
+      
+      const errEl = document.getElementById('fileErr');
+      if(total > maxBytes) {
+        errEl.style.display = 'block';
+        input.value = ""; // Clear selection
+        document.getElementById('fileList').innerText = "";
+        isFileValid = false;
+      } else {
+        errEl.style.display = 'none';
+        document.getElementById('fileList').innerText = `${input.files.length} file(s) ready.`;
+        isFileValid = true;
+      }
+    }
+
+    // 4. Regex Email Validation
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // Base64 Helper for Drive API
+    const getBase64 = (file) => new Promise((resolve, reject) => {
+      const reader = new FileReader(); 
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve({ name: file.name, mime: file.type, base64: reader.result.split(',')[1], category: 'Architectural' });
+      reader.onerror = e => reject(e);
+    });
+
+    // 5. Hardened Submission Contract
+    async function submitBrief() {
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const emailErr = document.getElementById('emailErr');
+      
+      if (!name) return alert("Client Name is required to generate the brief.");
+      if (!validateEmail(email)) { emailErr.style.display = 'block'; return; } else { emailErr.style.display = 'none'; }
+      if (!isFileValid) return alert("Please resolve file size limits before submitting.");
+
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('loaderOverlay').style.display = 'flex';
+
+      try {
+        const fileInput = document.getElementById('projectFiles');
+        let filePayloads = [];
+        if (fileInput.files.length > 0) {
+          filePayloads = await Promise.all(Array.from(fileInput.files).map(f => getBase64(f)));
+        }
+
+        const payload = {
+          securityToken: SECURE_TOKEN,
+          clientName: name, 
+          clientEmail: email, 
+          clientPhone: document.getElementById('clientPhone').value,
+          projectLocation: document.getElementById('projectLocation').value, 
+          projectType: document.getElementById('projectType').value,
+          siteArea: document.getElementById('siteArea').value, 
+          architectName: document.getElementById('architectName').value, 
+          mepName: document.getElementById('mepName').value,
+          siteSlope: document.getElementById('siteSlope').value, 
+          siteSoil: document.getElementById('siteSoil').value, 
+          existingTrees: document.getElementById('existingTrees').value,
+          wellness: document.getElementById('wellness').value, 
+          luxury: document.getElementById('luxury').value,
+          pets: document.getElementById('hasPets').value === 'Yes' ? document.getElementById('pets').value : 'No', 
+          elderly: document.getElementById('hasElderly').value === 'Yes' ? document.getElementById('elderly').value : 'No', 
+          maintenance: document.getElementById('maintenance').value,
+          groundFloor: document.getElementById('groundFloor').value, 
+          terrace: document.getElementById('terrace').value,
+          landscapeCharacter: Array.from(document.querySelectorAll('#landscapeCharacter .chip.selected')).map(c=>c.innerText).join(', '),
+          undesiredPlants: Array.from(document.querySelectorAll('#undesiredPlants .chip.selected')).map(c=>c.innerText).join(', '),
+          files: filePayloads
+        };
+
+        const response = await fetch(SCRIPT_URL, { 
+          method: 'POST', 
+          mode: 'cors', 
+          headers: { 'Content-Type': 'text/plain' }, 
+          body: JSON.stringify(payload) 
+        });
+        
+        const result = await response.json();
+        
+        if (result.status === "success") {
+          document.getElementById('loaderOverlay').style.display = 'none';
+          document.getElementById('successState').style.display = 'block';
+          document.getElementById('refId').innerText = result.projectId;
+          document.getElementById('personaOutput').innerText = result.persona;
+          
+          localStorage.removeItem('gdz_draft_v4');
+          window.scrollTo(0, 0);
+        } else throw new Error(result.message);
+
+      } catch (err) {
+        document.getElementById('loaderOverlay').style.display = 'none';
+        document.getElementById('formContainer').style.display = 'block';
+        alert("Transmission Failed: " + err.message + "\n\nPlease try again or contact the studio.");
+      }
+    }
+  </script>
+</body>
+</html>
