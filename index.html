@@ -2,1247 +2,1343 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Greenscape LOS™ | Design Intelligence Brief</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Landscape Lifestyle Discovery — Greenscape Designz</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-
 :root{
-  --bg:#f4f6f3;
-  --surface:#ffffff;
-  --primary:#1c2a1f;
-  --accent:#2f6b46;
-  --soft:#e7efe8;
-  --border:#d8e1d9;
-  --text:#1f2a1f;
-  --muted:#6c756d;
-  --danger:#c94b4b;
-  --shadow:0 10px 40px rgba(0,0,0,0.06);
+  --bg:#FAF8F3; --surf:#F3EDE4; --surf2:#EAE2D7; --white:#FFF;
+  --T:#C4714A; --Tl:#E8C4AD; --Tp:#FBF2EC; --Td:#A05A36;
+  --S:#9B8B78; --Sd:#6B5C4C;
+  --ink:#281E13; --im:#4A3C2E; --il:#7A6E60;
+  --sage:#6E8B6E; --br:#D8D0C3; --brl:#ECE7DD;
+  --sh:rgba(40,28,16,.07); --shm:rgba(40,28,16,.13); --shl:rgba(40,28,16,.20);
 }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased}
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/* ── HEADER ── */
+.hdr{position:sticky;top:0;z-index:300;background:var(--ink);padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 20px var(--shl)}
+.brand{display:flex;flex-direction:column;gap:2px}
+.bn{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bg)}
+.bs{font-size:.65rem;color:var(--S);letter-spacing:.1em;text-transform:uppercase}
+.pbar{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.pt{width:180px;height:3px;background:rgba(255,255,255,.1);border-radius:2px}
+.pf{height:100%;background:var(--T);border-radius:2px;width:0%;transition:width .5s ease}
+.pl{font-size:.64rem;color:var(--S);letter-spacing:.08em}
+
+/* ── HERO ── */
+.hero{position:relative;overflow:hidden;background:linear-gradient(155deg,#3C2819 0%,#4E3020 50%,#2A1C10 100%);padding:72px 40px 60px;text-align:center}
+.hp{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(196,113,74,.13) 1px,transparent 1px);background-size:26px 26px}
+.hg{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:360px;pointer-events:none;background:radial-gradient(ellipse,rgba(196,113,74,.16) 0%,transparent 68%)}
+.hi{position:relative;z-index:1}
+.hbadge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,113,74,.14);border:1px solid rgba(196,113,74,.32);color:var(--Tl);font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 16px;border-radius:24px;margin-bottom:24px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5.5vw,3.9rem);font-weight:300;color:var(--bg);line-height:1.14;letter-spacing:-.01em;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:var(--Tl)}
+.hd{font-size:.93rem;color:rgba(250,248,243,.58);font-weight:300;max-width:510px;margin:0 auto 28px;line-height:1.82}
+.hm{display:inline-flex;font-size:.7rem;color:rgba(250,248,243,.32);letter-spacing:.08em}
+.hm span{padding:0 14px;border-right:1px solid rgba(255,255,255,.12)}
+.hm span:last-child{border-right:none}
+
+/* ── MAIN ── */
+.main{max-width:860px;margin:0 auto;padding:44px 20px 100px}
+
+/* ── FORM SECTION ── */
+.fs{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 2px 24px var(--sh);border:1px solid var(--brl);margin-bottom:26px}
+.fsh{background:var(--surf);padding:22px 32px;border-bottom:1px solid var(--brl);display:flex;align-items:flex-start;gap:16px}
+.snum{flex-shrink:0;width:38px;height:38px;background:var(--T);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:500;letter-spacing:.05em;margin-top:2px}
+.sm{flex:1}
+.st{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:500;color:var(--ink);line-height:1.2}
+.sd{font-size:.77rem;color:var(--il);margin-top:3px}
+.fsb{padding:28px 32px}
+
+/* ── GRIDS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.g2{grid-template-columns:1fr}}
+
+/* ── FIELD ── */
+.fld{margin-bottom:22px}
+.fld:last-child{margin-bottom:0}
+.fl{display:block;font-size:.82rem;font-weight:500;color:var(--im);margin-bottom:10px;letter-spacing:.02em}
+.fh{font-size:.74rem;color:var(--S);margin-bottom:10px;font-style:italic}
+
+/* ── INPUTS ── */
+select,input[type=text],input[type=email],input[type=tel]{width:100%;padding:11px 40px 11px 15px;border:1.5px solid var(--br);border-radius:10px;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:.88rem;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239B8B78' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;transition:border-color .2s}
+select:focus,input:focus{outline:none;border-color:var(--T)}
+input[type=text],input[type=email],input[type=tel]{background-image:none;padding:11px 15px}
+
+/* ── STEPPER ── */
+.stepper{display:flex;align-items:center;gap:14px}
+.sb{width:40px;height:40px;border:1.5px solid var(--br);border-radius:9px;background:var(--bg);color:var(--im);cursor:pointer;font-size:1.3rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:all .18s;user-select:none}
+.sb:hover{border-color:var(--T);color:var(--T);background:var(--Tp)}
+.sv{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--ink);min-width:34px;text-align:center;line-height:1}
+
+/* ── TOGGLE ── */
+.tr{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--bg);border-radius:10px;border:1.5px solid var(--br);cursor:pointer;transition:all .2s}
+.tr:has(input:checked){border-color:var(--T);background:var(--Tp)}
+.tl{font-size:.85rem;color:var(--im);display:flex;align-items:center;gap:8px;pointer-events:none}
+.tog{position:relative;width:46px;height:26px;flex-shrink:0}
+.tog input{opacity:0;width:0;height:0;position:absolute}
+.tt{position:absolute;inset:0;background:var(--surf2);border-radius:13px;cursor:pointer;transition:background .25s;border:1.5px solid var(--br)}
+.tt::before{content:'';position:absolute;width:18px;height:18px;background:var(--S);border-radius:50%;top:2px;left:2px;transition:all .25s}
+.tog input:checked+.tt{background:var(--T);border-color:var(--T)}
+.tog input:checked+.tt::before{transform:translateX(20px);background:#fff}
+
+/* ── SLIDER ── */
+.sw{margin-bottom:18px}
+.sw:last-child{margin-bottom:0}
+.sr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.sn{font-size:.84rem;font-weight:500;color:var(--im)}
+.sv2{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:var(--T);line-height:1;min-width:22px;text-align:right}
+input[type=range]{-webkit-appearance:none;width:100%;height:5px;border-radius:3px;background:var(--surf2);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--T);cursor:pointer;border:2.5px solid #fff;box-shadow:0 2px 9px rgba(196,113,74,.42);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover,input[type=range]:active::-webkit-slider-thumb{transform:scale(1.2)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--T);border:2.5px solid #fff;cursor:pointer}
+.se{display:flex;justify-content:space-between;margin-top:5px}
+.sel{font-size:.68rem;color:var(--S);font-style:italic}
+
+/* ── CHIPS ── */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:8px 15px;border-radius:24px;border:1.5px solid var(--br);background:var(--bg);color:var(--im);font-family:'DM Sans',sans-serif;font-size:.8rem;cursor:pointer;transition:all .18s;user-select:none;line-height:1.4}
+.chip:hover{border-color:var(--T);color:var(--T);background:var(--Tp)}
+.chip.on{background:var(--T);color:#fff;border-color:var(--T)}
+.chip.av.on{background:var(--Sd);border-color:var(--Sd)}
+
+/* ── DIVIDER ── */
+.div{height:1px;background:var(--brl);margin:22px 0}
+
+/* ── DYNAMIC SECTIONS ── */
+.dyn{display:none;background:var(--Tp);border:1.5px solid var(--Tl);border-radius:14px;padding:22px;margin-top:18px}
+.dyn.on{display:block;animation:fd .28s ease}
+@keyframes fd{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+.dt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--Td);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+
+/* ── ARCH SLIDERS ── */
+.asl{margin-bottom:20px}
+.als{display:flex;justify-content:space-between;margin-bottom:6px}
+.al{font-size:.74rem;color:var(--Sd);font-weight:500}
+
+/* ── SUBMIT SECTION ── */
+.gen-btn{width:100%;padding:20px;margin-top:12px;background:linear-gradient(135deg,var(--T),var(--Td));color:#fff;border:none;border-radius:14px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;box-shadow:0 6px 30px rgba(196,113,74,.35);transition:all .28s;display:flex;align-items:center;justify-content:center;gap:10px}
+.gen-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(196,113,74,.45)}
+.gen-btn:active{transform:translateY(0)}
+.gen-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* ── BRIEF OUTPUT ── */
+.bo{display:none;margin-top:40px}
+.bo.on{display:block;animation:fd .4s ease}
+.bc{background:linear-gradient(140deg,#281E13,#3C2618);color:var(--bg);padding:36px 36px 30px;border-radius:20px 20px 0 0;position:relative;overflow:hidden}
+.bc::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(196,113,74,.1) 1px,transparent 1px);background-size:20px 20px}
+.bci{position:relative;z-index:1}
+.bct{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--S);margin-bottom:10px}
+.bpn{font-family:'Cormorant Garamond',serif;font-size:clamp(1.5rem,3.5vw,2.5rem);font-weight:300;line-height:1.2;margin-bottom:8px}
+.bpn em{font-style:italic;color:var(--Tl)}
+.bdt{font-size:.72rem;color:rgba(250,248,243,.38);margin-top:6px}
+.bb{background:var(--white);border-radius:0 0 20px 20px;padding:36px;box-shadow:0 6px 40px var(--shm)}
+.bsec{padding-bottom:26px;margin-bottom:26px;border-bottom:1px solid var(--brl)}
+.bsec:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.bst{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--T);margin-bottom:16px}
+.ptag{display:inline-flex;align-items:center;gap:8px;background:var(--T);color:#fff;padding:9px 20px;border-radius:30px;font-size:.86rem;font-weight:500;margin-bottom:14px}
+.pdesc{font-size:.87rem;color:var(--im);line-height:1.82}
+
+/* score bars */
+.sci{display:flex;align-items:center;gap:12px;margin-bottom:11px}
+.sci:last-child{margin-bottom:0}
+.scn{font-size:.8rem;color:var(--im);width:155px;flex-shrink:0}
+.scb{flex:1;height:5px;background:var(--surf2);border-radius:3px;overflow:hidden}
+.scf{height:100%;background:linear-gradient(to right,var(--Tl),var(--T));border-radius:3px}
+.scv{font-size:.8rem;font-weight:500;color:var(--T);width:32px;text-align:right}
+
+/* recs */
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(max-width:560px){.rg{grid-template-columns:1fr}}
+.ri{display:flex;gap:8px;align-items:flex-start;background:var(--bg);padding:10px 12px;border-radius:8px;font-size:.81rem;color:var(--im);border:1px solid var(--brl)}
+.rd{width:5px;height:5px;border-radius:50%;background:var(--T);flex-shrink:0;margin-top:5px}
+
+/* contradiction */
+.cb{background:#FFF6F0;border:1.5px solid #EFC09A;border-radius:10px;padding:14px 16px;margin-bottom:10px}
+.ct{font-size:.73rem;font-weight:500;color:#B56628;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.cx{font-size:.82rem;color:var(--im);line-height:1.65}
+
+/* sheet submit */
+.submit-area{background:var(--surf);border-radius:14px;padding:24px;margin-top:28px;border:1px solid var(--brl)}
+.submit-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--ink);margin-bottom:8px}
+.submit-sub{font-size:.8rem;color:var(--il);margin-bottom:16px;line-height:1.6}
+.input-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.input-row input{flex:1;min-width:180px;padding:11px 14px;border:1.5px solid var(--br);border-radius:10px;background:var(--white);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:.88rem;background-image:none}
+.input-row input:focus{outline:none;border-color:var(--T)}
+.sheet-btn{background:var(--ink);color:var(--bg);border:none;padding:13px 28px;border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;display:flex;align-items:center;gap:8px;transition:all .22s}
+.sheet-btn:hover{background:var(--Td)}
+.sheet-btn:disabled{opacity:.5;cursor:not-allowed}
+.submit-status{font-size:.82rem;margin-top:10px;min-height:22px}
+.submit-status.ok{color:var(--sage)}
+.submit-status.err{color:#C4714A}
+
+/* footer btns */
+.fbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn-o{background:var(--bg);color:var(--im);border:1.5px solid var(--br);padding:11px 22px;border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.84rem;transition:all .2s}
+.btn-o:hover{border-color:var(--Sd);color:var(--ink)}
+
+/* ── UPLOAD BOX ── */
+.upload-box{border:1.5px dashed var(--br);border-radius:14px;padding:22px 20px;text-align:center;background:var(--bg);cursor:pointer;transition:all .22s}
+.upload-box:hover,.upload-box.has-files{border-color:var(--T);background:var(--Tp)}
+.upload-box.has-files .ub-icon{filter:none}
+.ub-icon{font-size:1.8rem;margin-bottom:8px;filter:grayscale(.4)}
+.ub-label{font-size:.86rem;font-weight:500;color:var(--im);margin-bottom:3px}
+.ub-sub{font-size:.74rem;color:var(--il);margin-bottom:8px}
+.ub-status{font-size:.75rem;color:var(--S);transition:color .2s}
+.upload-box.has-files .ub-status{color:var(--Td);font-weight:500}
+
+/* ── MOOD CARDS ── */
+.mood-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.mood-card{position:relative;height:178px;border-radius:14px;overflow:hidden;cursor:pointer;border:2.5px solid transparent;transition:all .28s;flex-shrink:0}
+.mood-card .mc-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;display:block}
+.mood-card:hover .mc-img{transform:scale(1.06)}
+.mc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.08) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:13px 12px}
+.mc-name{color:#fff;font-size:.82rem;font-weight:500;line-height:1.3;letter-spacing:.01em}
+.mc-sub{color:rgba(255,255,255,.6);font-size:.68rem;margin-top:2px;line-height:1.3}
+.mc-badge{position:absolute;top:9px;right:9px;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;opacity:0;transition:opacity .22s,transform .22s;transform:scale(.65)}
+.mood-card.ml{border-color:var(--T);box-shadow:0 0 0 1px rgba(196,113,74,.35)}
+.mood-card.ml .mc-img{transform:scale(1.04)}
+.mood-card.ml .mc-badge{opacity:1;transform:scale(1);background:var(--T);color:#fff}
+.avoid-mode .mood-card.ml{border-color:var(--Sd);box-shadow:none}
+.avoid-mode .mood-card.ml .mc-badge{background:var(--Sd)}
+.avoid-mode .mood-card.ml .mc-img{filter:grayscale(.5) brightness(.7)}
+.mood-count{font-size:.78rem;color:var(--Td);font-weight:500;margin-top:10px;min-height:18px}
+
+/* ── REFERENCE IMAGE UPLOAD ── */
+.ref-drop{border:1.5px dashed var(--br);border-radius:14px;padding:30px 20px;text-align:center;background:var(--bg);cursor:pointer;transition:all .22s;position:relative}
+.ref-drop:hover,.ref-drop.drag-on{border-color:var(--T);background:var(--Tp)}
+.ref-drop.has-refs{border-color:var(--T)}
+.ref-icon{font-size:2rem;margin-bottom:10px}
+.ref-lbl{font-size:.88rem;font-weight:500;color:var(--im);margin-bottom:4px}
+.ref-sl{font-size:.74rem;color:var(--S)}
+.ref-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-top:14px}
+.rth{position:relative;height:90px;border-radius:10px;overflow:hidden;border:1.5px solid var(--brl)}
+.rth img{width:100%;height:100%;object-fit:cover;display:block}
+.rth-x{position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.65rem;padding:0;line-height:1}
+.rcount{font-size:.78rem;color:var(--Td);font-weight:500;margin-top:8px;min-height:18px}
+
+@media(max-width:640px){
+  .mood-grid{grid-template-columns:repeat(2,1fr)}
+  .mood-card{height:150px}
 }
+@media(max-width:380px){.mood-card{height:130px}}
 
-html{
-  scroll-behavior:smooth;
+/* ── SPATIAL PROGRAMMING LEVELS ── */
+.sp-level{margin-bottom:4px}
+.sp-level-hd{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.sp-icon{font-size:1.6rem;flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--surf);border-radius:10px;border:1px solid var(--brl)}
+.sp-level-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;color:var(--ink)}
+.sp-level-sub{font-size:.74rem;color:var(--il);margin-top:1px}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hdr{padding:0 16px}
+  .pt{width:110px}
+  .hero{padding:48px 20px 44px}
+  .main{padding:22px 14px 80px}
+  .fsh{padding:18px 20px}
+  .fsb{padding:20px}
+  .bc,.bb{padding:24px 20px}
 }
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
+@media(max-width:380px){.bs,.hm{display:none}}
+@media print{
+  .hdr,.hero,.fs,.gen-btn,.submit-area,.fbtns{display:none!important}
+  .bo{display:block!important}
+  .main{padding:0}
 }
-
-/* TOPBAR */
-
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:rgba(255,255,255,0.9);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(0,0,0,0.05);
-  padding:14px 30px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-weight:700;
-  letter-spacing:2px;
-  font-size:0.95rem;
-}
-
-.progress-wrap{
-  width:180px;
-  height:8px;
-  background:#dde6de;
-  border-radius:100px;
-  overflow:hidden;
-}
-
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#2f6b46,#5ea06f);
-  transition:0.3s;
-}
-
-/* HERO */
-
-.hero{
-  padding:80px 20px 50px;
-  text-align:center;
-}
-
-.hero h1{
-  font-size:3rem;
-  font-weight:700;
-  margin-bottom:20px;
-  color:var(--primary);
-}
-
-.hero p{
-  max-width:850px;
-  margin:auto;
-  color:var(--muted);
-  font-size:1.05rem;
-}
-
-/* CONTAINER */
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-}
-
-/* SECTIONS */
-
-.section{
-  background:var(--surface);
-  border-radius:24px;
-  padding:40px;
-  margin-bottom:35px;
-  box-shadow:var(--shadow);
-  border:1px solid rgba(0,0,0,0.04);
-}
-
-.section-title{
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  font-size:1.7rem;
-  margin-bottom:10px;
-  color:var(--primary);
-}
-
-.section-title p{
-  color:var(--muted);
-}
-
-/* GRID */
-
-.grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-
-.grid-3{
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:20px;
-}
-
-/* FORM */
-
-.question{
-  margin-bottom:24px;
-}
-
-label{
-  display:block;
-  margin-bottom:10px;
-  font-size:0.92rem;
-  font-weight:600;
-  color:var(--primary);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="number"],
-textarea,
-select{
-  width:100%;
-  padding:16px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:#fbfcfb;
-  font-size:0.96rem;
-  transition:0.2s;
-}
-
-textarea{
-  min-height:120px;
-  resize:vertical;
-}
-
-input:focus,
-textarea:focus,
-select:focus{
-  outline:none;
-  border-color:var(--accent);
-  background:white;
-}
-
-/* SLIDERS */
-
-.slider-wrap{
-  margin-bottom:26px;
-}
-
-.slider-label{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-}
-
-.slider-label span{
-  color:var(--accent);
-  font-weight:600;
-}
-
-input[type=range]{
-  width:100%;
-  accent-color:var(--accent);
-}
-
-/* CHIPS */
-
-.chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.chip{
-  padding:11px 18px;
-  border-radius:40px;
-  border:1px solid #cfd7cf;
-  background:#f8faf8;
-  cursor:pointer;
-  transition:0.25s;
-  user-select:none;
-  font-size:0.9rem;
-}
-
-.chip:hover{
-  transform:translateY(-2px);
-}
-
-.chip.selected{
-  background:var(--primary);
-  color:white;
-  border-color:var(--primary);
-}
-
-#undesiredPlants .chip.selected{
-  background:var(--danger);
-  border-color:var(--danger);
-}
-
-/* VISUAL CARDS */
-
-.visual-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.visual-card{
-  position:relative;
-  height:230px;
-  border-radius:22px;
-  overflow:hidden;
-  cursor:pointer;
-  border:3px solid transparent;
-  transition:0.3s;
-}
-
-.visual-card:hover{
-  transform:translateY(-4px);
-}
-
-.visual-card.selected{
-  border-color:var(--accent);
-}
-
-.visual-card img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.visual-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
-  display:flex;
-  align-items:flex-end;
-  padding:20px;
-  color:white;
-  font-weight:600;
-  font-size:1.1rem;
-}
-
-/* FILE UPLOAD */
-
-.upload-box{
-  border:2px dashed #cad5cb;
-  padding:50px 20px;
-  border-radius:22px;
-  text-align:center;
-  background:#fafcfa;
-  transition:0.3s;
-  cursor:pointer;
-}
-
-.upload-box:hover{
-  border-color:var(--accent);
-  background:#f1f8f2;
-}
-
-.upload-box p{
-  color:var(--muted);
-}
-
-.file-list{
-  margin-top:15px;
-  color:var(--accent);
-  font-weight:600;
-}
-
-/* DYNAMIC */
-
-.dynamic{
-  display:none;
-  margin-top:25px;
-  padding:28px;
-  border-radius:20px;
-  background:#f7faf7;
-  border-left:5px solid var(--accent);
-}
-
-.dynamic.active{
-  display:block;
-  animation:fade 0.4s ease;
-}
-
-@keyframes fade{
-  from{
-    opacity:0;
-    transform:translateY(10px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* BUTTON */
-
-button{
-  width:100%;
-  padding:22px;
-  border:none;
-  border-radius:18px;
-  background:linear-gradient(135deg,#203326,#356b47);
-  color:white;
-  font-size:1rem;
-  font-weight:700;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-button:hover{
-  transform:translateY(-2px);
-}
-
-/* DNA */
-
-.dna{
-  margin-top:40px;
-  background:#f5f9f5;
-  padding:40px;
-  border-radius:24px;
-}
-
-.dna-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:24px;
-  margin-top:30px;
-}
-
-.metric{
-  text-align:center;
-}
-
-.circle{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  margin:auto auto 14px;
-  background:conic-gradient(#2f6b46 0%, #dce7dd 0%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:1.4rem;
-  font-weight:700;
-}
-
-/* SUMMARY */
-
-.summary{
-  margin-top:40px;
-  background:white;
-  padding:40px;
-  border-radius:24px;
-  border:1px solid #dce4dc;
-}
-
-.summary-box{
-  margin-bottom:25px;
-  padding:24px;
-  border-radius:18px;
-  background:#fafcfa;
-}
-
-/* LOADER */
-
-.loader{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(255,255,255,0.95);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-
-.spinner{
-  width:70px;
-  height:70px;
-  border:5px solid #dfe8df;
-  border-top:5px solid var(--accent);
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-  margin-bottom:25px;
-}
-
-@keyframes spin{
-  to{
-    transform:rotate(360deg);
-  }
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-  .grid-2,
-  .grid-3{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:2rem;
-  }
-
-  .section{
-    padding:25px;
-  }
-
-}
-
 </style>
 </head>
-
 <body>
 
-<div class="topbar">
-  <div class="logo">GREENSCAPE LOS™</div>
-  <div class="progress-wrap">
-    <div class="progress-bar" id="progressBar"></div>
+<!-- HEADER -->
+<header class="hdr">
+  <div class="brand">
+    <div class="bn">Greenscape Designz</div>
+    <div class="bs">Landscape Architecture · Bengaluru</div>
+  </div>
+  <div class="pbar">
+    <div class="pt"><div class="pf" id="pFill"></div></div>
+    <div class="pl" id="pLbl">0 of 8 sections</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hp"></div><div class="hg"></div>
+  <div class="hi">
+    <div class="hbadge">✦ Villa Client Discovery · Private &amp; Confidential</div>
+    <h1>Landscape <em>Lifestyle</em><br>Discovery Experience</h1>
+    <p class="hd">A curated inquiry to align your landscape with how you truly live — daily rhythms, deep aspirations, and your long-term vision for your home and family.</p>
+    <div class="hm"><span>8–12 minutes</span><span>Greenscape Designz</span><span>Villa Landscape Series</span></div>
   </div>
 </div>
 
-<div class="hero">
-  <h1>Design Intelligence Brief™</h1>
-  <p>
-    A behavioral, spatial, ecological, and experiential discovery system designed to understand how your landscape should evolve as a meaningful extension of your architecture and lifestyle.
-  </p>
+<div class="main">
+
+<!-- ══ SECTION 00 ══ -->
+<div class="fs" data-s="0">
+  <div class="fsh"><div class="snum" style="background:var(--Sd)">00</div><div class="sm"><div class="st">Client &amp; Project Intelligence</div><div class="sd">Foundational information to align landscape strategy with site, architecture, and aspirations</div></div></div>
+  <div class="fsb">
+    <div class="g2">
+      <div class="fld"><label class="fl">Client Name</label><input type="text" id="c0name" placeholder="Full name"></div>
+      <div class="fld"><label class="fl">Email Address</label><input type="email" id="c0email" placeholder="Email address"></div>
+    </div>
+    <div class="g2">
+      <div class="fld"><label class="fl">Contact Number</label><input type="tel" id="c0phone" placeholder="Phone number"></div>
+      <div class="fld"><label class="fl">Project Location</label><input type="text" id="c0loc" placeholder="City / Region / Site address"></div>
+    </div>
+    <div class="g2">
+      <div class="fld"><label class="fl">Project Type</label>
+        <select id="c0type" onchange="updP()">
+          <option value="Private Villa">Private Villa</option>
+          <option value="Farmhouse">Farmhouse</option>
+          <option value="Weekend Home">Weekend Home</option>
+          <option value="Estate Residence">Estate Residence</option>
+          <option value="Holiday Retreat">Holiday Retreat</option>
+          <option value="Luxury Bungalow">Luxury Bungalow</option>
+          <option value="Penthouse">Penthouse</option>
+        </select>
+      </div>
+      <div class="fld"><label class="fl">Estimated Site Area</label><input type="text" id="c0area" placeholder="e.g. 12,000 sq.ft / 2 Acres"></div>
+    </div>
+    <div class="fld"><label class="fl">Architect / Architectural Firm</label><input type="text" id="c0arch" placeholder="Architect or firm name"></div>
+
+    <div class="div"></div>
+
+    <!-- DOCUMENT UPLOADS -->
+    <div class="fld"><label class="fl">🔧 Consultant Information</label>
+      <div class="g2">
+        <div class="fld" style="margin-bottom:0"><label class="fl" style="margin-bottom:8px">MEP / Services Consultant</label><input type="text" id="mepName" placeholder="MEP or services consultant name"></div>
+        <div class="fld" style="margin-bottom:0"><label class="fl" style="margin-bottom:8px">Structural Consultant</label><input type="text" id="structName" placeholder="Structural engineer name"></div>
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- SITE INTELLIGENCE -->
+    <div class="fld"><label class="fl">🌍 Site Intelligence</label>
+      <p class="fh">This data feeds directly into our ecological and hydrological design strategy.</p>
+      <div class="g2">
+        <div class="fld" style="margin-bottom:0"><label class="fl" style="margin-bottom:8px">Site Slope / Contours</label><input type="text" id="siteSlope" placeholder="e.g. Gentle south slope, ~2% grade"></div>
+        <div class="fld" style="margin-bottom:0"><label class="fl" style="margin-bottom:8px">Soil / Waterlogging Conditions</label><input type="text" id="siteSoil" placeholder="e.g. Red laterite, no waterlogging"></div>
+      </div>
+      <div class="fld" style="margin-top:14px;margin-bottom:0"><label class="fl" style="margin-bottom:8px">Existing Trees / Ecology to Retain</label><input type="text" id="existingTrees" placeholder="e.g. 2 mature Rain Trees on east boundary, Mango near entrance"></div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- DOCUMENT UPLOADS -->
+    <div class="fld">
+      <label class="fl">📁 Project Document Uploads</label>
+      <p class="fh">Uploading available drawings helps us better understand levels, circulation, views, hydrology, and architectural intent. All formats accepted — PDF, JPG, PNG, DWG.</p>
+
+      <div class="g2" style="margin-bottom:14px">
+        <div class="upload-box" id="ub-arch" onclick="document.getElementById('fu-arch').click()">
+          <div class="ub-icon">📐</div>
+          <div class="ub-label">Architectural Plans</div>
+          <div class="ub-sub">Floor plans, elevations, sections</div>
+          <div class="ub-status" id="us-arch">Click to upload</div>
+          <input type="file" id="fu-arch" multiple hidden onchange="showFiles(this,'us-arch','ub-arch')">
+        </div>
+        <div class="upload-box" id="ub-site" onclick="document.getElementById('fu-site').click()">
+          <div class="ub-icon">🗺️</div>
+          <div class="ub-label">Site Plans</div>
+          <div class="ub-sub">Boundary, setbacks, orientation</div>
+          <div class="ub-status" id="us-site">Click to upload</div>
+          <input type="file" id="fu-site" multiple hidden onchange="showFiles(this,'us-site','ub-site')">
+        </div>
+      </div>
+      <div class="g2" style="margin-bottom:14px">
+        <div class="upload-box" id="ub-topo" onclick="document.getElementById('fu-topo').click()">
+          <div class="ub-icon">🏔️</div>
+          <div class="ub-label">Contour / Topography Maps</div>
+          <div class="ub-sub">Levels, drainage, slopes</div>
+          <div class="ub-status" id="us-topo">Click to upload</div>
+          <input type="file" id="fu-topo" multiple hidden onchange="showFiles(this,'us-topo','ub-topo')">
+        </div>
+        <div class="upload-box" id="ub-img" onclick="document.getElementById('fu-img').click()">
+          <div class="ub-icon">📸</div>
+          <div class="ub-label">Site Images &amp; References</div>
+          <div class="ub-sub">Photos, inspiration, mood references</div>
+          <div class="ub-status" id="us-img">Click to upload</div>
+          <input type="file" id="fu-img" multiple accept="image/*" hidden onchange="showFiles(this,'us-img','ub-img')">
+        </div>
+      </div>
+      <div class="upload-box" id="ub-other" onclick="document.getElementById('fu-other').click()" style="padding:18px 24px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="font-size:1.4rem">📎</div>
+          <div>
+            <div class="ub-label" style="font-size:.9rem">Additional Consultant Drawings</div>
+            <div class="ub-sub">Structural, MEP, civil or any other reference documents</div>
+          </div>
+          <div class="ub-status" id="us-other" style="margin-left:auto;font-size:.78rem;white-space:nowrap">Click to upload</div>
+        </div>
+        <input type="file" id="fu-other" multiple hidden onchange="showFiles(this,'us-other','ub-other')">
+      </div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- SITE INTELLIGENCE -->
+    <div class="fld">
+      <label class="fl">Site Conditions &amp; Existing Ecology</label>
+      <div class="chips">
+        <div class="chip" onclick="ct(this)">Flat Site</div>
+        <div class="chip" onclick="ct(this)">Sloped / Contoured</div>
+        <div class="chip" onclick="ct(this)">Waterlogging Risk</div>
+        <div class="chip" onclick="ct(this)">Existing Trees Present</div>
+        <div class="chip" onclick="ct(this)">Rocky Terrain</div>
+        <div class="chip" onclick="ct(this)">High Water Table</div>
+        <div class="chip" onclick="ct(this)">Adjacent Water Body</div>
+        <div class="chip" onclick="ct(this)">Sandy / Laterite Soil</div>
+        <div class="chip" onclick="ct(this)">Urban Infill Plot</div>
+        <div class="chip" onclick="ct(this)">North-Facing</div>
+        <div class="chip" onclick="ct(this)">South-Facing</div>
+        <div class="chip" onclick="ct(this)">Corner Plot</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container" id="mainContainer">
-
-<!-- 01 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>01 — Client & Project Intelligence</h2>
-<p>Foundational metadata helping align landscape strategy with site, architecture, and long-term aspirations.</p>
+<!-- ══ SECTION 01 ══ -->
+<div class="fs" data-s="1">
+  <div class="fsh"><div class="snum">01</div><div class="sm"><div class="st">Family Snapshot</div><div class="sd">Understanding who will inhabit and shape this landscape</div></div></div>
+  <div class="fsb">
+    <div class="g2">
+      <div class="fld">
+        <label class="fl">Total Family Members</label>
+        <div class="stepper">
+          <div class="sb" onclick="step('fc',-1)">−</div>
+          <div class="sv" id="fcD">4</div>
+          <div class="sb" onclick="step('fc',1)">+</div>
+          <input type="hidden" id="fc" value="4">
+        </div>
+      </div>
+      <div class="fld">
+        <label class="fl">Domestic Staff Residing Onsite</label>
+        <select id="staff" onchange="updP()">
+          <option value="none">No onsite staff</option>
+          <option value="1">Yes — 1 person</option>
+          <option value="2">Yes — 2 persons</option>
+          <option value="3+">Yes — 3 or more</option>
+        </select>
+      </div>
+    </div>
+    <div class="fld">
+      <label class="fl">Children in the Family — Select Age Groups</label>
+      <div class="chips" id="cAgeC">
+        <div class="chip" data-v="0-5"   onclick="ct(this);ed()">🌱 0–5 · Toddler</div>
+        <div class="chip" data-v="6-12"  onclick="ct(this);ed()">🚲 6–12 · Child</div>
+        <div class="chip" data-v="13-18" onclick="ct(this);ed()">🎧 13–18 · Teen</div>
+        <div class="chip" data-v="none"  onclick="cx(this,'cAgeC');ed()">No Children</div>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="fld">
+        <label class="fl">Elderly Members (60+) Present</label>
+        <div class="tr" onclick="document.getElementById('elT').click()">
+          <span class="tl"><span>🌿</span>Elderly members stay regularly</span>
+          <label class="tog" onclick="event.stopPropagation()"><input type="checkbox" id="elT" onchange="ed()"><span class="tt"></span></label>
+        </div>
+      </div>
+      <div class="fld">
+        <label class="fl">Pets in the Family</label>
+        <div class="tr" onclick="document.getElementById('petT').click()">
+          <span class="tl"><span>🐾</span>Pets will use this landscape</span>
+          <label class="tog" onclick="event.stopPropagation()"><input type="checkbox" id="petT" onchange="ed()"><span class="tt"></span></label>
+        </div>
+      </div>
+    </div>
+    <div class="fld">
+      <label class="fl">Extended Family &amp; Guest Visit Frequency</label>
+      <select id="gFreq" onchange="updP()">
+        <option value="rare">Rarely — special occasions only</option>
+        <option value="monthly">Monthly gatherings</option>
+        <option value="fortnightly">Every fortnight</option>
+        <option value="weekly">Weekly presence</option>
+        <option value="constant">Very active — someone always visiting</option>
+      </select>
+    </div>
+    <!-- DYN Child -->
+    <div class="dyn" id="dyn-child">
+      <div class="dt">🌱 Children's Landscape Needs</div>
+      <div id="d05" style="display:none;margin-bottom:18px">
+        <div class="fl" style="margin-bottom:9px">Toddler Priorities (0–5 yrs)</div>
+        <div class="chips"><div class="chip" onclick="ct(this)">Soft Lawn</div><div class="chip" onclick="ct(this)">Sandpit / Tactile</div><div class="chip" onclick="ct(this)">Water Safety</div><div class="chip" onclick="ct(this)">Shaded Play</div><div class="chip" onclick="ct(this)">Sensory Garden</div><div class="chip" onclick="ct(this)">Non-Toxic Plants Only</div></div>
+      </div>
+      <div id="d612" style="display:none;margin-bottom:18px">
+        <div class="fl" style="margin-bottom:9px">Child Activities (6–12 yrs)</div>
+        <div class="chips"><div class="chip" onclick="ct(this)">Cycling Path</div><div class="chip" onclick="ct(this)">Nature Trail</div><div class="chip" onclick="ct(this)">Tree Climbing</div><div class="chip" onclick="ct(this)">Sports Area</div><div class="chip" onclick="ct(this)">Water Play</div><div class="chip" onclick="ct(this)">Kitchen Garden Learning</div></div>
+      </div>
+      <div id="d1318" style="display:none;margin-bottom:18px">
+        <div class="fl" style="margin-bottom:9px">Teen Preferences (13–18 yrs)</div>
+        <div class="chips"><div class="chip" onclick="ct(this)">Social Seating</div><div class="chip" onclick="ct(this)">Sports / Badminton</div><div class="chip" onclick="ct(this)">Privacy Corner</div><div class="chip" onclick="ct(this)">Hammock Zone</div><div class="chip" onclick="ct(this)">Outdoor Study Spot</div></div>
+      </div>
+      <div class="sw"><div class="sr"><span class="sn">Child Safety Priority</span><span class="sv2" id="csV">8</span></div><input type="range" min="0" max="10" value="8" id="cs" oninput="slU(this)"></div>
+    </div>
+    <!-- DYN Elderly -->
+    <div class="dyn" id="dyn-el">
+      <div class="dt">🌿 Elderly Comfort &amp; Accessibility</div>
+      <div class="g2">
+        <div class="sw"><div class="sr"><span class="sn">Shaded Walking Paths</span><span class="sv2" id="swV">7</span></div><input type="range" min="0" max="10" value="7" id="sw" oninput="slU(this)"></div>
+        <div class="sw"><div class="sr"><span class="sn">Night Safety Priority</span><span class="sv2" id="nsV">8</span></div><input type="range" min="0" max="10" value="8" id="ns" oninput="slU(this)"></div>
+      </div>
+      <div class="fld" style="margin-top:4px"><label class="fl">Accessibility Requirements</label>
+        <div class="chips"><div class="chip" onclick="ct(this)">Anti-Slip Pathways</div><div class="chip" onclick="ct(this)">Handrails on Steps</div><div class="chip" onclick="ct(this)">Rest Seating Every 20m</div><div class="chip" onclick="ct(this)">Low-Glare Lighting</div><div class="chip" onclick="ct(this)">Therapy Walking Loop</div><div class="chip" onclick="ct(this)">Wheelchair Compatible</div></div>
+      </div>
+    </div>
+    <!-- DYN Pet -->
+    <div class="dyn" id="dyn-pet">
+      <div class="dt">🐾 Pet Lifestyle Integration</div>
+      <div class="fld"><label class="fl">Pet Type</label><select id="petType" onchange="updP()"><option>Dog — Small Breed</option><option>Dog — Large Breed</option><option>Cat</option><option>Multiple Pets</option><option>Other</option></select></div>
+      <div class="fld" style="margin-top:14px"><label class="fl">Pet Needs &amp; Behaviours</label>
+        <div class="chips"><div class="chip" onclick="ct(this)">Open Lawn Needed</div><div class="chip" onclick="ct(this)">Digging Behaviour</div><div class="chip" onclick="ct(this)">Containment Required</div><div class="chip" onclick="ct(this)">Shaded Rest Zone</div><div class="chip" onclick="ct(this)">Pet Bathing Area</div><div class="chip" onclick="ct(this)">Pet-Safe Plants Only</div></div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="grid-2">
-
-<div class="question">
-<label>Client Name *</label>
-<input type="text" id="clientName" class="saveable" required>
+<!-- ══ SECTION 02 ══ -->
+<div class="fs" data-s="2">
+  <div class="fsh"><div class="snum">02</div><div class="sm"><div class="st">Daily Outdoor Rhythm</div><div class="sd">When do you naturally seek time in outdoor spaces?</div></div></div>
+  <div class="fsb">
+    <p class="fh">Slide to indicate engagement intensity — 0 = never outdoors at this time · 10 = always outdoors then</p>
+    <div class="sw"><div class="sr"><span class="sn">🌅 Early Morning (5–7 am)</span><span class="sv2" id="t1V">3</span></div><input type="range" min="0" max="10" value="3" id="t1" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">☀️ Morning (7–10 am)</span><span class="sv2" id="t2V">6</span></div><input type="range" min="0" max="10" value="6" id="t2" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🌤️ Late Morning (10–12)</span><span class="sv2" id="t3V">2</span></div><input type="range" min="0" max="10" value="2" id="t3" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🌞 Afternoon (12–4 pm)</span><span class="sv2" id="t4V">1</span></div><input type="range" min="0" max="10" value="1" id="t4" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🌇 Evening (4–7 pm)</span><span class="sv2" id="t5V">8</span></div><input type="range" min="0" max="10" value="8" id="t5" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🌙 Night (7 pm+)</span><span class="sv2" id="t6V">5</span></div><input type="range" min="0" max="10" value="5" id="t6" oninput="slU(this)"></div>
+  </div>
 </div>
 
-<div class="question">
-<label>Email Address *</label>
-<input type="email" id="clientEmail" class="saveable" required>
+<!-- ══ SECTION 03 ══ -->
+<div class="fs" data-s="3">
+  <div class="fsh"><div class="snum">03</div><div class="sm"><div class="st">Lifestyle Experience Priorities</div><div class="sd">How should your landscape make you feel?</div></div></div>
+  <div class="fsb">
+    <div class="sw"><div class="sr"><span class="sn">🧘 Calmness &amp; Wellness</span><span class="sv2" id="wV">5</span></div><input type="range" min="0" max="10" value="5" id="w" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">✨ Luxury &amp; Prestige</span><span class="sv2" id="luV">5</span></div><input type="range" min="0" max="10" value="5" id="lu" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🌿 Nature Immersion</span><span class="sv2" id="naV">5</span></div><input type="range" min="0" max="10" value="5" id="na" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🥂 Social Hosting</span><span class="sv2" id="hoV">5</span></div><input type="range" min="0" max="10" value="5" id="ho" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">👨‍👩‍👧 Family Bonding</span><span class="sv2" id="fbV">5</span></div><input type="range" min="0" max="10" value="5" id="fb" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🔒 Privacy &amp; Seclusion</span><span class="sv2" id="prV">5</span></div><input type="range" min="0" max="10" value="5" id="pr" oninput="slU(this)"></div>
+    <div class="sw"><div class="sr"><span class="sn">🛠️ Low Maintenance Preference</span><span class="sv2" id="maV">5</span></div><input type="range" min="0" max="10" value="5" id="ma" oninput="slU(this)"><div class="se"><span class="sel">I enjoy garden involvement</span><span class="sel">Minimal effort preferred</span></div></div>
+    <div class="sw"><div class="sr"><span class="sn">🌱 Ecological Values</span><span class="sv2" id="ecV">5</span></div><input type="range" min="0" max="10" value="5" id="ec" oninput="slU(this)"></div>
+  </div>
 </div>
 
+<!-- ══ SECTION 04 ══ -->
+<div class="fs" data-s="4">
+  <div class="fsh"><div class="snum">04</div><div class="sm"><div class="st">Architecture &amp; Landscape Relationship</div><div class="sd">How should the landscape speak with your villa?</div></div></div>
+  <div class="fsb">
+    <div class="fld"><label class="fl">Architectural Language of the Villa</label>
+      <select id="arch" onchange="updP()"><option value="contemporary-minimal">Contemporary Minimal</option><option value="tropical-modern">Tropical Modern</option><option value="classical-villa">Classical Villa</option><option value="rustic-estate">Rustic Estate</option><option value="modern-luxury">Modern Luxury</option><option value="courtyard-centric">Courtyard-Centric</option><option value="indo-contemporary">Indo-Contemporary</option></select>
+    </div>
+    <div class="div"></div>
+    <div class="asl"><div class="als"><span class="al">← Bold / Dominant</span><span class="al">Subtle / Complementary →</span></div><div class="sr"><span class="sn">Landscape vs Architecture Balance</span><span class="sv2" id="abV">5</span></div><input type="range" min="0" max="10" value="5" id="ab" oninput="slU(this)"></div>
+    <div class="asl"><div class="als"><span class="al">← Open / Expansive</span><span class="al">Enclosed / Intimate →</span></div><div class="sr"><span class="sn">Spatial Openness</span><span class="sv2" id="opV">5</span></div><input type="range" min="0" max="10" value="5" id="op" oninput="slU(this)"></div>
+    <div class="asl"><div class="als"><span class="al">← Structured / Formal</span><span class="al">Organic / Naturalistic →</span></div><div class="sr"><span class="sn">Planting Language</span><span class="sv2" id="ntV">5</span></div><input type="range" min="0" max="10" value="5" id="nt" oninput="slU(this)"></div>
+    <div class="asl"><div class="als"><span class="al">← Colourful / Vibrant</span><span class="al">Green / Monochrome →</span></div><div class="sr"><span class="sn">Colour Expression</span><span class="sv2" id="coV">5</span></div><input type="range" min="0" max="10" value="5" id="co" oninput="slU(this)"></div>
+    <div class="div"></div>
+    <div class="fld"><label class="fl">Priority Spaces — Select All That Apply</label>
+      <div class="chips" id="spC">
+        <div class="chip" onclick="ct(this)">🚗 Arrival Experience</div><div class="chip" onclick="ct(this)">🏊 Poolside</div><div class="chip" onclick="ct(this)">🌿 Backyard Garden</div><div class="chip" onclick="ct(this)">🍽️ Outdoor Dining</div><div class="chip" onclick="ct(this)">🧘 Meditation Zone</div><div class="chip" onclick="ct(this)">🏡 Entrance Court</div><div class="chip" onclick="ct(this)">☕ Sit-Out / Verandah</div><div class="chip" onclick="ct(this)">🌱 Kitchen Garden</div><div class="chip" onclick="ct(this)">🎉 Entertainment Lawn</div><div class="chip" onclick="ct(this)">🌳 Terrace Garden</div><div class="chip" onclick="ct(this)">🐾 Pet Zone</div><div class="chip" onclick="ct(this)">🔆 Service Area Screen</div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="grid-2">
+<!-- ══ MOOD SECTION ══ -->
+<div class="fs" data-s="mood">
+  <div class="fsh">
+    <div class="snum" style="background:linear-gradient(135deg,var(--S),var(--Sd));font-size:1rem">✦</div>
+    <div class="sm">
+      <div class="st">Landscape Mood &amp; Character</div>
+      <div class="sd">Visual calibration — select styles that resonate and upload your own reference images</div>
+    </div>
+  </div>
+  <div class="fsb">
 
-<div class="question">
-<label>Phone Number</label>
-<input type="text" id="clientPhone" class="saveable">
+    <!-- LOVE CARDS -->
+    <div class="fld">
+      <label class="fl">Landscapes That Resonate With You</label>
+      <p class="fh">Select one or more. These images calibrate the emotional language and aesthetic direction of your design — the more you select, the more precisely we can read your sensibility.</p>
+      <div class="mood-grid" id="moodLoveGrid">
+
+        <div class="mood-card" data-mood="Tropical Resort" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#1e4d30,#0d2e1a)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1540202404-a2f29564658f?auto=format&fit=crop&w=600&h=380&q=80" alt="Tropical Resort" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Tropical Resort</div><div class="mc-sub">Lush, layered, pool-garden immersion</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Zen Meditative" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#3a3a30,#20201a)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&h=380&q=80" alt="Zen Meditative" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Zen Meditative</div><div class="mc-sub">Calm, minimal, water and stone</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Luxury Estate" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#3a2e1a,#221a0a)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&h=380&q=80" alt="Luxury Estate" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Luxury Estate</div><div class="mc-sub">Grand, formal, prestige planting</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Wild Ecology" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#2a4020,#162410)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&h=380&q=80" alt="Wild Ecology" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Wild Ecology</div><div class="mc-sub">Native, naturalistic, biodiverse meadow</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Contemporary Minimal" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#3a3a3a,#222222)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&h=380&q=80" alt="Contemporary Minimal" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Contemporary Minimal</div><div class="mc-sub">Clean edges, restrained, architecture-first</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Forest Canopy" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#1a2e14,#0e1c0a)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&h=380&q=80" alt="Forest Canopy" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Forest Canopy</div><div class="mc-sub">Shaded, mature trees, woodland immersion</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Resort Poolside" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#1a2e40,#0e1c2a)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=600&h=380&q=80" alt="Resort Poolside" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Resort Poolside</div><div class="mc-sub">Hospitality-grade, leisure and glamour</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+        <div class="mood-card" data-mood="Fragrant Indian Garden" onclick="moodT(this,'love')"
+          style="background:linear-gradient(135deg,#3a2a10,#221808)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&h=380&q=80" alt="Fragrant Indian Garden" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Fragrant Sensory Garden</div><div class="mc-sub">Jasmine, frangipani, traditional Indian fragrance</div></div>
+          <div class="mc-badge">✓</div>
+        </div>
+
+      </div>
+      <div class="mood-count" id="loveCount"></div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- AVOID CARDS -->
+    <div class="fld">
+      <label class="fl">Landscapes You Would Not Enjoy</label>
+      <p class="fh">Equally important — immediately eliminates design directions that don't suit your sensibility. Click to flag.</p>
+      <div class="mood-grid avoid-mode" id="moodAvoidGrid">
+
+        <div class="mood-card" data-mood="Heavy Hardscape" onclick="moodT(this,'avoid')"
+          style="background:linear-gradient(135deg,#3a3630,#221e18)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&h=380&q=80" alt="Heavy Hardscape" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Heavy Hardscape / Concrete</div><div class="mc-sub">Minimal planting, paving-dominant spaces</div></div>
+          <div class="mc-badge">✕</div>
+        </div>
+
+        <div class="mood-card" data-mood="Over-Formal Clipped" onclick="moodT(this,'avoid')"
+          style="background:linear-gradient(135deg,#2a3620,#181e12)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=600&h=380&q=80" alt="Over-Formal Garden" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Over-Manicured / Formal</div><div class="mc-sub">Clipped topiaries, rigid symmetry</div></div>
+          <div class="mc-badge">✕</div>
+        </div>
+
+        <div class="mood-card" data-mood="Sparse / Underplanted" onclick="moodT(this,'avoid')"
+          style="background:linear-gradient(135deg,#3a3030,#221e1e)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?auto=format&fit=crop&w=600&h=380&q=80" alt="Sparse Landscape" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Sparse / Underplanted</div><div class="mc-sub">Bare, empty, low planting density</div></div>
+          <div class="mc-badge">✕</div>
+        </div>
+
+        <div class="mood-card" data-mood="Garish / Over-Coloured" onclick="moodT(this,'avoid')"
+          style="background:linear-gradient(135deg,#3a2020,#221414)">
+          <img class="mc-img" src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=600&h=380&q=80" alt="Garish Colourful Garden" loading="lazy" onerror="this.style.display='none'">
+          <div class="mc-ov"><div class="mc-name">Garish / Over-Coloured</div><div class="mc-sub">Loud seasonal bedding, visual clutter</div></div>
+          <div class="mc-badge">✕</div>
+        </div>
+
+      </div>
+      <div class="mood-count" id="avoidCount"></div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- CLIENT REFERENCE UPLOAD -->
+    <div class="fld">
+      <label class="fl">Upload Your Own Reference Images</label>
+      <p class="fh">Magazine pages, hotel gardens, spaces that moved you, screenshots — anything that captures your vision. Drag &amp; drop or click to browse. These become part of your design brief.</p>
+      <div class="ref-drop" id="refDrop"
+        onclick="document.getElementById('refImgs').click()"
+        ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropRefs(event)">
+        <div class="ref-icon">🖼️</div>
+        <div class="ref-lbl">Click to browse or drag &amp; drop images here</div>
+        <div class="ref-sl">JPG · PNG · WEBP · Multiple files accepted</div>
+        <input type="file" id="refImgs" multiple accept="image/*" hidden onchange="previewRefs(this.files)">
+      </div>
+      <div class="ref-thumbs" id="refThumbs"></div>
+      <div class="rcount" id="refCount"></div>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- AESTHETIC QUALITIES -->
+    <div class="fld">
+      <label class="fl">Aesthetic Qualities That Matter Most to You</label>
+      <div class="chips" id="aestheticChips">
+        <div class="chip" onclick="ct(this)">Timeless over Trendy</div>
+        <div class="chip" onclick="ct(this)">Dramatic Focal Points</div>
+        <div class="chip" onclick="ct(this)">Layered Visual Depth</div>
+        <div class="chip" onclick="ct(this)">Seasonal Interest</div>
+        <div class="chip" onclick="ct(this)">Emotional Intimacy</div>
+        <div class="chip" onclick="ct(this)">Grand Scale</div>
+        <div class="chip" onclick="ct(this)">Tactile Materials &amp; Texture</div>
+        <div class="chip" onclick="ct(this)">Photogenic / Instagrammable</div>
+        <div class="chip" onclick="ct(this)">Age &amp; Patina</div>
+        <div class="chip" onclick="ct(this)">Night Atmosphere</div>
+        <div class="chip" onclick="ct(this)">Soft / Romantic</div>
+        <div class="chip" onclick="ct(this)">Structural / Bold</div>
+        <div class="chip" onclick="ct(this)">Colour Harmony</div>
+        <div class="chip" onclick="ct(this)">Natural Sound Landscape</div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="question">
-<label>Project Location</label>
-<input type="text" id="projectLocation" class="saveable">
+<!-- ══ SECTION 05 ══ -->
+<div class="fs" data-s="5">
+  <div class="fsh"><div class="snum">05</div><div class="sm"><div class="st">Plant &amp; Landscape Preferences</div><div class="sd">Calibrating the planting language precisely to your taste</div></div></div>
+  <div class="fsb">
+    <div class="fld"><label class="fl">Plants &amp; Trees You Connect With</label>
+      <div class="chips" id="ppC"><div class="chip" onclick="ct(this)">Frangipani</div><div class="chip" onclick="ct(this)">Bamboo</div><div class="chip" onclick="ct(this)">Bougainvillea</div><div class="chip" onclick="ct(this)">Areca Palm</div><div class="chip" onclick="ct(this)">Foxtail Palm</div><div class="chip" onclick="ct(this)">Rain Tree</div><div class="chip" onclick="ct(this)">Tabebuia</div><div class="chip" onclick="ct(this)">Cassia Fistula</div><div class="chip" onclick="ct(this)">Heliconia</div><div class="chip" onclick="ct(this)">Bird of Paradise</div><div class="chip" onclick="ct(this)">Jasmine</div><div class="chip" onclick="ct(this)">Hibiscus</div><div class="chip" onclick="ct(this)">Native Flowering Trees</div><div class="chip" onclick="ct(this)">Fruit Trees</div><div class="chip" onclick="ct(this)">Ornamental Grasses</div><div class="chip" onclick="ct(this)">Water Lilies / Lotus</div><div class="chip" onclick="ct(this)">Succulents</div><div class="chip" onclick="ct(this)">Peepal / Banyan</div><div class="chip" onclick="ct(this)">Neem</div><div class="chip" onclick="ct(this)">Kadamba</div></div>
+    </div>
+    <div class="div"></div>
+    <div class="fld"><label class="fl">Elements You'd Prefer to Avoid</label>
+      <div class="chips" id="apC"><div class="chip av" onclick="ct(this)">Heavy Leaf Fall</div><div class="chip av" onclick="ct(this)">Thorny Plants</div><div class="chip av" onclick="ct(this)">High Pollen Plants</div><div class="chip av" onclick="ct(this)">Dense Creepers</div><div class="chip av" onclick="ct(this)">Large Lawn Areas</div><div class="chip av" onclick="ct(this)">High Water Species</div><div class="chip av" onclick="ct(this)">Messy Flower Drop</div><div class="chip av" onclick="ct(this)">Tall Palms</div><div class="chip av" onclick="ct(this)">Formal Clipped Hedges</div><div class="chip av" onclick="ct(this)">Artificial Turf</div><div class="chip av" onclick="ct(this)">Strong Fragrance</div><div class="chip av" onclick="ct(this)">Dense Shade Trees</div><div class="chip av" onclick="ct(this)">Cactus</div></div>
+    </div>
+    <div class="div"></div>
+    <div class="fld"><label class="fl">Desired Landscape Character</label>
+      <div class="chips" id="lcC"><div class="chip" onclick="ct(this)">Tropical Resort</div><div class="chip" onclick="ct(this)">Native Ecological</div><div class="chip" onclick="ct(this)">Contemporary Minimal</div><div class="chip" onclick="ct(this)">Luxury Estate</div><div class="chip" onclick="ct(this)">Forest-like Immersive</div><div class="chip" onclick="ct(this)">Seasonal Flowering</div><div class="chip" onclick="ct(this)">Meditative Zen</div><div class="chip" onclick="ct(this)">Productive Edible</div><div class="chip" onclick="ct(this)">Wild Biodiverse</div></div>
+    </div>
+  </div>
 </div>
 
+<!-- ══ SPATIAL PROGRAMMING ══ -->
+<div class="fs" data-s="sp">
+  <div class="fsh">
+    <div class="snum" style="background:linear-gradient(135deg,var(--sage),#4a7a4a)">⊞</div>
+    <div class="sm">
+      <div class="st">Spatial Programming by Level</div>
+      <div class="sd">What should each floor of your villa do for you? This feeds directly into the Apps Script design brief database.</div>
+    </div>
+  </div>
+  <div class="fsb">
+    <p class="fh">Select desired experiences for each level — these are captured individually in the design intelligence database under SPATIAL_PROGRAMMING.</p>
+
+    <!-- GROUND FLOOR -->
+    <div class="sp-level">
+      <div class="sp-level-hd">
+        <span class="sp-icon">🌿</span>
+        <div><div class="sp-level-name">Ground Realm</div><div class="sp-level-sub">Garden, arrival, pool, entertainment, family zones</div></div>
+      </div>
+      <div class="chips" id="gfChips">
+        <div class="chip" onclick="ct(this)">Arrival Court</div>
+        <div class="chip" onclick="ct(this)">Family Lawn</div>
+        <div class="chip" onclick="ct(this)">Poolside Lounge</div>
+        <div class="chip" onclick="ct(this)">Outdoor Dining</div>
+        <div class="chip" onclick="ct(this)">Children's Play</div>
+        <div class="chip" onclick="ct(this)">Kitchen Garden</div>
+        <div class="chip" onclick="ct(this)">Meditation Court</div>
+        <div class="chip" onclick="ct(this)">Water Feature</div>
+        <div class="chip" onclick="ct(this)">Pet Zone</div>
+        <div class="chip" onclick="ct(this)">Biodiverse Garden</div>
+        <div class="chip" onclick="ct(this)">Entertaining Lawn</div>
+        <div class="chip" onclick="ct(this)">Utility / Service Screen</div>
+      </div>
+      <textarea id="gfNotes" placeholder="Additional notes for Ground Realm…" style="margin-top:12px;width:100%;padding:11px 14px;border:1.5px solid var(--br);border-radius:10px;background:var(--bg);font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink);min-height:72px;resize:vertical"></textarea>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- TERRACE / ROOFTOP -->
+    <div class="sp-level">
+      <div class="sp-level-hd">
+        <span class="sp-icon">🌤️</span>
+        <div><div class="sp-level-name">Terrace / Rooftop Realm</div><div class="sp-level-sub">Upper level garden, sky courts, rooftop experiences</div></div>
+      </div>
+      <div class="chips" id="trChips">
+        <div class="chip" onclick="ct(this)">Sky Garden</div>
+        <div class="chip" onclick="ct(this)">Rooftop Dining</div>
+        <div class="chip" onclick="ct(this)">Yoga / Wellness Deck</div>
+        <div class="chip" onclick="ct(this)">Planters &amp; Green Walls</div>
+        <div class="chip" onclick="ct(this)">Sundowner Lounge</div>
+        <div class="chip" onclick="ct(this)">Potted Edibles / Herbs</div>
+        <div class="chip" onclick="ct(this)">Pergola / Shade Structure</div>
+        <div class="chip" onclick="ct(this)">Evening Entertainment</div>
+        <div class="chip" onclick="ct(this)">Privacy Screening</div>
+      </div>
+      <textarea id="trNotes" placeholder="Additional notes for Terrace Realm…" style="margin-top:12px;width:100%;padding:11px 14px;border:1.5px solid var(--br);border-radius:10px;background:var(--bg);font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink);min-height:72px;resize:vertical"></textarea>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- BALCONY / UPPER LEVEL -->
+    <div class="sp-level">
+      <div class="sp-level-hd">
+        <span class="sp-icon">🌸</span>
+        <div><div class="sp-level-name">Balcony / Upper-Level Landscape</div><div class="sp-level-sub">Bedroom balconies, sit-outs, transitional spaces</div></div>
+      </div>
+      <div class="chips" id="blChips">
+        <div class="chip" onclick="ct(this)">Fragrant Planters</div>
+        <div class="chip" onclick="ct(this)">Morning Tea Sit-Out</div>
+        <div class="chip" onclick="ct(this)">Climbers / Creepers</div>
+        <div class="chip" onclick="ct(this)">Privacy Screen Planting</div>
+        <div class="chip" onclick="ct(this)">View-Framing Planting</div>
+        <div class="chip" onclick="ct(this)">Seasonal Colour</div>
+        <div class="chip" onclick="ct(this)">Minimalist Planter Box</div>
+      </div>
+      <textarea id="blNotes" placeholder="Additional notes for Balcony / Upper Level…" style="margin-top:12px;width:100%;padding:11px 14px;border:1.5px solid var(--br);border-radius:10px;background:var(--bg);font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink);min-height:72px;resize:vertical"></textarea>
+    </div>
+
+    <div class="div"></div>
+
+    <!-- BASEMENT / COURTYARD -->
+    <div class="sp-level">
+      <div class="sp-level-hd">
+        <span class="sp-icon">🏛️</span>
+        <div><div class="sp-level-name">Basement / Courtyard Opportunities</div><div class="sp-level-sub">Sunken courts, light wells, basement access, internal courtyards</div></div>
+      </div>
+      <div class="chips" id="bsChips">
+        <div class="chip" onclick="ct(this)">Light Well Garden</div>
+        <div class="chip" onclick="ct(this)">Internal Courtyard</div>
+        <div class="chip" onclick="ct(this)">Sunken Sitting Court</div>
+        <div class="chip" onclick="ct(this)">Water Feature / Pond</div>
+        <div class="chip" onclick="ct(this)">Moss / Fern Planting</div>
+        <div class="chip" onclick="ct(this)">Not Applicable</div>
+      </div>
+      <textarea id="bsNotes" placeholder="Additional notes for Basement / Courtyard…" style="margin-top:12px;width:100%;padding:11px 14px;border:1.5px solid var(--br);border-radius:10px;background:var(--bg);font-family:'DM Sans',sans-serif;font-size:.84rem;color:var(--ink);min-height:72px;resize:vertical"></textarea>
+    </div>
+
+  </div>
 </div>
 
-<div class="grid-2">
-
-<div class="question">
-<label>Project Type</label>
-<select id="projectType" class="saveable">
-<option>Private Villa</option>
-<option>Farmhouse</option>
-<option>Estate Residence</option>
-<option>Luxury Bungalow</option>
-<option>Hospitality Retreat</option>
-<option>Penthouse</option>
-</select>
+<!-- ══ SECTION 06 ══ -->
+<div class="fs" data-s="6">
+  <div class="fsh"><div class="snum">06</div><div class="sm"><div class="st">Wellness, Sensory &amp; Comfort Needs</div><div class="sd">Personalises microclimate and sensory design decisions</div></div></div>
+  <div class="fsb">
+    <div class="fld"><label class="fl">Sensory Preferences</label>
+      <div class="chips"><div class="chip" onclick="ct(this)">Fragrant Gardens</div><div class="chip" onclick="ct(this)">Water Sounds / Features</div><div class="chip" onclick="ct(this)">Bird-Attracting Plants</div><div class="chip" onclick="ct(this)">Barefoot Walking Areas</div><div class="chip" onclick="ct(this)">Cool Shaded Retreats</div><div class="chip" onclick="ct(this)">Tactile Textures</div><div class="chip" onclick="ct(this)">Night Fragrance</div><div class="chip" onclick="ct(this)">Butterfly / Pollinator Garden</div></div>
+    </div>
+    <div class="div"></div>
+    <div class="fld"><label class="fl">Health &amp; Comfort Considerations</label>
+      <div class="chips"><div class="chip" onclick="ct(this)">Heat Sensitivity — Shade Priority</div><div class="chip" onclick="ct(this)">Pollen / Allergy Concern</div><div class="chip" onclick="ct(this)">Mosquito Sensitivity</div><div class="chip" onclick="ct(this)">Night Outdoor Use Planned</div><div class="chip" onclick="ct(this)">Yoga / Meditation Outdoors</div><div class="chip" onclick="ct(this)">Morning Walk Routine</div></div>
+    </div>
+  </div>
 </div>
 
-<div class="question">
-<label>Estimated Site Area</label>
-<input type="text" id="siteArea" class="saveable">
+<!-- ══ SECTION 07 ══ -->
+<div class="fs" data-s="7">
+  <div class="fsh"><div class="snum">07</div><div class="sm"><div class="st">Long-Term Vision &amp; Evolution</div><div class="sd">How do you see this landscape growing with your family?</div></div></div>
+  <div class="fsb">
+    <div class="g2">
+      <div class="fld"><label class="fl">How long do you plan to live here?</label><select id="stay" onchange="updP()"><option value="5-10">5–10 years</option><option value="10-20">10–20 years</option><option value="lifetime">Lifetime — legacy home</option><option value="investment">Investment / rental property</option></select></div>
+      <div class="fld"><label class="fl">Occupancy Pattern</label><select id="occ" onchange="updP()"><option value="fulltime">Full-time primary residence</option><option value="weekend">Weekend home only</option><option value="seasonal">Seasonal use</option><option value="travel">Frequent travel — 4+ months away</option></select></div>
+    </div>
+    <div class="fld"><label class="fl">Vision for This Landscape After 10 Years</label>
+      <div class="chips" id="fvC"><div class="chip" onclick="ct(this)">🧘 Wellness Sanctuary</div><div class="chip" onclick="ct(this)">🌳 Mature Shaded Estate</div><div class="chip" onclick="ct(this)">🦋 Biodiverse Retreat</div><div class="chip" onclick="ct(this)">👨‍👩‍👧 Family Gathering Hub</div><div class="chip" onclick="ct(this)">🍾 Luxury Social Destination</div><div class="chip" onclick="ct(this)">🌿 Low-Maintenance Resilience</div><div class="chip" onclick="ct(this)">🌾 Food Forest / Orchard</div><div class="chip" onclick="ct(this)">🌍 Ecological Legacy</div></div>
+    </div>
+    <div class="div"></div>
+    <div class="fld"><label class="fl">Sustainability &amp; Water Harvesting Interest</label>
+      <div class="chips"><div class="chip" onclick="ct(this)">Rainwater Harvesting</div><div class="chip" onclick="ct(this)">Greywater Recycling</div><div class="chip" onclick="ct(this)">Composting Area</div><div class="chip" onclick="ct(this)">Native-Only Planting</div><div class="chip" onclick="ct(this)">Solar Landscape Lighting</div><div class="chip" onclick="ct(this)">Not a Priority Currently</div></div>
+    </div>
+  </div>
 </div>
 
+<!-- ══ SECTION 08 ══ -->
+<div class="fs" data-s="8">
+  <div class="fsh"><div class="snum">08</div><div class="sm"><div class="st">Cultural &amp; Lifestyle Context</div><div class="sd">Particularly relevant for South Indian family living</div></div></div>
+  <div class="fsb">
+    <div class="fld"><label class="fl">Cultural &amp; Ritual Landscape Needs</label>
+      <div class="chips"><div class="chip" onclick="ct(this)">Tulsi / Sacred Plant Court</div><div class="chip" onclick="ct(this)">Outdoor Pooja / Prayer Space</div><div class="chip" onclick="ct(this)">Festival Gathering Space</div><div class="chip" onclick="ct(this)">Traditional Plant Species</div><div class="chip" onclick="ct(this)">Vastu Alignment</div><div class="chip" onclick="ct(this)">Ancestral / Legacy Tree</div></div>
+    </div>
+    <div class="div"></div>
+    <div class="fld"><label class="fl">Preferred Hosting Style</label>
+      <div class="chips"><div class="chip" onclick="ct(this)">Intimate Family Dinners</div><div class="chip" onclick="ct(this)">Large Festival Gatherings</div><div class="chip" onclick="ct(this)">Formal Client / Professional</div><div class="chip" onclick="ct(this)">Casual Friends</div><div class="chip" onclick="ct(this)">Professional Events</div><div class="chip" onclick="ct(this)">Weekend Sundowners / BBQ</div></div>
+    </div>
+  </div>
 </div>
 
-<div class="question">
-<label>Architect / Architectural Firm</label>
-<input type="text" id="architectName" class="saveable">
-</div>
-
-</section>
-
-<!-- 02 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>02 — Landscape Mood & Character</h2>
-<p>Select visual directions that emotionally resonate with your ideal landscape experience.</p>
-</div>
-
-<div class="visual-grid">
-
-<div class="visual-card selectable-card" data-value="Tropical Modern">
-<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
-<div class="visual-overlay">Tropical Modern</div>
-</div>
-
-<div class="visual-card selectable-card" data-value="Zen Minimal">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
-<div class="visual-overlay">Zen Minimal</div>
-</div>
-
-<div class="visual-card selectable-card" data-value="Luxury Estate">
-<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
-<div class="visual-overlay">Luxury Estate</div>
-</div>
-
-<div class="visual-card selectable-card" data-value="Wild Ecology">
-<img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?q=80&w=1200&auto=format&fit=crop">
-<div class="visual-overlay">Wild Ecology</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- 03 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>03 — Lifestyle & Behavioral Mapping</h2>
-<p>Understanding how landscape should support wellness, rituals, social life, ecology, and operational expectations.</p>
-</div>
-
-<div class="slider-wrap">
-<div class="slider-label">
-<label>Wellness & Calmness</label>
-<span id="wellnessValue">5</span>
-</div>
-<input type="range" id="wellness" min="0" max="10" value="5" class="saveable">
-</div>
-
-<div class="slider-wrap">
-<div class="slider-label">
-<label>Luxury & Prestige</label>
-<span id="luxuryValue">5</span>
-</div>
-<input type="range" id="luxury" min="0" max="10" value="5" class="saveable">
-</div>
-
-<div class="slider-wrap">
-<div class="slider-label">
-<label>Nature Immersion</label>
-<span id="natureValue">5</span>
-</div>
-<input type="range" id="nature" min="0" max="10" value="5" class="saveable">
-</div>
-
-<div class="slider-wrap">
-<div class="slider-label">
-<label>Social Hosting</label>
-<span id="hostingValue">5</span>
-</div>
-<input type="range" id="hosting" min="0" max="10" value="5" class="saveable">
-</div>
-
-<div class="slider-wrap">
-<div class="slider-label">
-<label>Low Maintenance Preference</label>
-<span id="maintenanceValue">5</span>
-</div>
-<input type="range" id="maintenance" min="0" max="10" value="5" class="saveable">
-</div>
-
-</section>
-
-<!-- 04 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>04 — Dynamic Lifestyle Intelligence</h2>
-<p>Adaptive behavioral profiling based on family structure, emotional priorities, wellness expectations, and ecosystem relationships.</p>
-</div>
-
-<div class="grid-2">
-
-<div class="question">
-<label>Do children actively use outdoor spaces?</label>
-<select id="childrenToggle" class="saveable">
-<option>No</option>
-<option>Yes</option>
-</select>
-</div>
-
-<div class="question">
-<label>Do elderly family members stay regularly?</label>
-<select id="elderlyToggle" class="saveable">
-<option>No</option>
-<option>Yes</option>
-</select>
-</div>
-
-</div>
-
-<div class="question">
-<label>Do you have pets?</label>
-<select id="petsToggle" class="saveable">
-<option>No</option>
-<option>Yes</option>
-</select>
-</div>
-
-<!-- CHILD -->
-<div class="dynamic" id="childSection">
-
-<h3 style="margin-bottom:20px;">Children Lifestyle Mapping</h3>
-
-<div class="question">
-<label>Preferred Children Experiences</label>
-
-<div class="chips" id="childChips">
-
-<div class="chip">Cycling</div>
-<div class="chip">Nature Exploration</div>
-<div class="chip">Water Play</div>
-<div class="chip">Adventure Trails</div>
-<div class="chip">Interactive Gardens</div>
-<div class="chip">Butterfly Habitat</div>
-
-</div>
-</div>
-
-</div>
-
-<!-- ELDERLY -->
-<div class="dynamic" id="elderlySection">
-
-<h3 style="margin-bottom:20px;">Elderly Wellness & Accessibility</h3>
-
-<div class="chips" id="elderlyChips">
-
-<div class="chip">Reflexology Path</div>
-<div class="chip">Shaded Walks</div>
-<div class="chip">Meditation Seating</div>
-<div class="chip">Morning Sun Court</div>
-<div class="chip">Therapy Gardens</div>
-
-</div>
-
-</div>
-
-<!-- PET -->
-<div class="dynamic" id="petSection">
-
-<h3 style="margin-bottom:20px;">Pet Lifestyle Integration</h3>
-
-<div class="chips" id="petChips">
-
-<div class="chip">Durable Lawn</div>
-<div class="chip">Pet Wash Station</div>
-<div class="chip">Cooling Water Features</div>
-<div class="chip">Secure Boundaries</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- 05 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>05 — Plant Preference Mapping</h2>
-<p>Calibrating planting language, biodiversity inclination, maintenance sensitivity, and emotional resonance.</p>
-</div>
-
-<div class="question">
-
-<label>Preferred Landscape Plants</label>
-
-<div class="chips" id="preferredPlants">
-
-<div class="chip">Frangipani</div>
-<div class="chip">Bamboo</div>
-<div class="chip">Bougainvillea</div>
-<div class="chip">Tabebuia</div>
-<div class="chip">Cassia Fistula</div>
-<div class="chip">Fruit Trees</div>
-<div class="chip">Ornamental Grasses</div>
-<div class="chip">Native Flowering Trees</div>
-
-</div>
-
-</div>
-
-<div class="question">
-
-<label>Plants / Elements To Avoid</label>
-
-<div class="chips" id="undesiredPlants">
-
-<div class="chip">Heavy Leaf Fall</div>
-<div class="chip">High Water Requirement</div>
-<div class="chip">Dense Creepers</div>
-<div class="chip">Messy Flower Drop</div>
-<div class="chip">Artificial Turf</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- 06 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>06 — Floor-Wise Spatial Programming</h2>
-<p>Understanding how different levels should emotionally and functionally perform.</p>
-</div>
-
-<div class="grid-2">
-
-<div class="question">
-<label>Ground Floor Landscape</label>
-<textarea id="groundFloor" class="saveable"></textarea>
-</div>
-
-<div class="question">
-<label>Terrace / Rooftop Landscape</label>
-<textarea id="terrace" class="saveable"></textarea>
-</div>
-
-</div>
-
-<div class="grid-2">
-
-<div class="question">
-<label>Balcony / Upper-Level Landscape</label>
-<textarea id="balcony" class="saveable"></textarea>
-</div>
-
-<div class="question">
-<label>Basement / Courtyard Opportunities</label>
-<textarea id="basement" class="saveable"></textarea>
-</div>
-
-</div>
-
-</section>
-
-<!-- 07 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>07 — Site Intelligence & Ecology</h2>
-<p>Capturing environmental, hydrological, topographical, and ecological realities.</p>
-</div>
-
-<div class="grid-2">
-
-<div class="question">
-<label>Slope / Contours</label>
-<input type="text" id="siteSlope" class="saveable">
-</div>
-
-<div class="question">
-<label>Soil / Waterlogging Conditions</label>
-<input type="text" id="siteSoil" class="saveable">
-</div>
-
-</div>
-
-<div class="question">
-<label>Existing Trees / Ecology To Retain</label>
-<textarea id="existingTrees" class="saveable"></textarea>
-</div>
-
-</section>
-
-<!-- 08 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>08 — Long-Term Landscape Vision</h2>
-<p>Understanding how the landscape should mature over 10–20 years.</p>
-</div>
-
-<div class="chips" id="futureVision">
-
-<div class="chip">Wellness Sanctuary</div>
-<div class="chip">Mature Shaded Estate</div>
-<div class="chip">Luxury Hospitality Feel</div>
-<div class="chip">Biodiverse Retreat</div>
-<div class="chip">Low-OPEX Resilience</div>
-
-</div>
-
-<div class="question" style="margin-top:25px;">
-<label>Additional Lifestyle Aspirations</label>
-<textarea id="customInputs" class="saveable"></textarea>
-</div>
-
-</section>
-
-<!-- 09 -->
-<section class="section observe">
-
-<div class="section-title">
-<h2>09 — Project Documents</h2>
-<p>Upload plans, site drawings, contour maps, references, and consultant documentation.</p>
-</div>
-
-<div class="upload-box" onclick="document.getElementById('projectFiles').click()">
-
-<h3 style="margin-bottom:10px;">Upload Plans & Site Documentation</h3>
-
-<p>PDF, JPG, PNG — Max 5MB Total</p>
-
-<input type="file" id="projectFiles" multiple hidden>
-
-<div class="file-list" id="fileList"></div>
-
-</div>
-
-</section>
-
-<button onclick="generateBrief()">
-Transmit & Generate Design Intelligence Brief™
+<!-- GENERATE -->
+<button class="gen-btn" id="genBtn" onclick="genBrief()">
+  <span>✦</span><span>Generate My Landscape Lifestyle Brief</span>
 </button>
 
-<!-- DNA SUMMARY SECTION (Revealed after success) -->
-<div class="dna" id="dnaSection" style="display:none;">
+<!-- BRIEF OUTPUT -->
+<div class="bo" id="bOut">
+  <div class="bc"><div class="bci">
+    <div class="bct">Greenscape Designz · Client Landscape Discovery Brief</div>
+    <div class="bpn" id="bTitle">Landscape Lifestyle Profile</div>
+    <div class="bdt" id="bDate"></div>
+  </div></div>
+  <div class="bb" id="bBody"></div>
 
-<h2 style="margin-bottom:10px;">Landscape DNA™ Configured</h2>
-
-<p style="color:var(--muted);">
-Your landscape behavioral profile has been secured. A RIBA Stage 0-1 PDF Brief has been generated and emailed to you.
-</p>
-
-<div class="dna-grid">
-
-<div class="metric">
-<div class="circle" id="wellnessCircle">0%</div>
-<h4>Wellness</h4>
+  <!-- GOOGLE SHEETS SUBMIT -->
+  <div class="submit-area">
+    <div class="submit-title">📋 Send This Brief to Greenscape Designz</div>
+    <div class="submit-sub">Share your contact details below to send your Landscape Lifestyle Profile directly to our studio. Your brief will be reviewed by our design team within 24 hours.</div>
+    <div class="input-row">
+      <input type="text" id="cName" placeholder="Your Full Name">
+      <input type="tel"  id="cPhone" placeholder="Contact Number">
+      <input type="email" id="cEmail" placeholder="Email Address">
+    </div>
+    <div class="input-row">
+      <input type="text" id="cProject" placeholder="Project Location / Site">
+    </div>
+    <button class="sheet-btn" id="sheetBtn" onclick="submitSheet()">
+      <span>✦</span><span>Submit to Studio</span>
+    </button>
+    <div class="submit-status" id="sStat"></div>
+  </div>
 </div>
 
-<div class="metric">
-<div class="circle" id="luxuryCircle">0%</div>
-<h4>Luxury</h4>
-</div>
-
-<div class="metric">
-<div class="circle" id="natureCircle">0%</div>
-<h4>Ecology</h4>
-</div>
-
-<div class="metric">
-<div class="circle" id="hostingCircle">0%</div>
-<h4>Hosting</h4>
-</div>
-
-</div>
-
-<div class="summary">
-
-<div class="summary-box">
-<h3 style="color:var(--accent);">Official Reference ID</h3>
-<h2 id="refId" style="font-weight:700; margin-top:5px; color:var(--primary);">GDZ-XXXX</h2>
-</div>
-
-<div class="summary-box">
-<h3>Client Persona</h3>
-<p id="personaText" style="font-weight:600; font-size:1.1rem; color:var(--primary);"></p>
-</div>
-
-<div class="summary-box">
-<h3>Strategic Landscape Direction</h3>
-<div id="strategyText"></div>
-</div>
-
-<div class="summary-box">
-<h3>Design Philosophy Alignment</h3>
-<p>
-The proposed landscape should evolve as an integrated extension of the architecture while balancing emotional wellbeing, ecological resilience, operational intelligence, long-term maintenance realities, and experiential richness.
-</p>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- LOADER -->
-<div class="loader" id="loader">
-
-<div class="spinner"></div>
-
-<h2 style="margin-bottom:10px; color:var(--primary);" id="loaderTitle">
-Synthesizing Design Intelligence Brief™
-</h2>
-
-<p style="color:var(--muted);" id="loaderSubtitle">
-Compiling behavioral ecology, spatial intelligence, and landscape DNA.
-</p>
-
-</div>
+</div><!-- /main -->
 
 <script>
-/* ========= CORE CONSTANTS ========= */
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxu2t7LBGGNcXguSV4HGAS_BZFUiddtwm3AHZ0OeTvMqD_D_zdp1_rNuLbnotP9dUopnw/exec';
-const SECURE_TOKEN = "GDZ-INTELLIGENCE-2026";
-let isFileValid = true;
+/* ═══════════════════════════════════════════════════════════════
+   GREENSCAPE DESIGNZ — LANDSCAPE LIFESTYLE DISCOVERY v3
+   Production endpoint: GDZ-INTELLIGENCE-2026
+   Apps Script Schema: CLIENT_MASTER | SITE_INTELLIGENCE |
+   CONSULTANT_DATA | BEHAVIORAL_PROFILE | SPATIAL_PROGRAMMING |
+   PLANT_PREFERENCES | PROJECT_UPLOADS
+═══════════════════════════════════════════════════════════════ */
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyp6KvifyLKWdAyQYQHbFcldvxre04Aneg-0pKv9JbzLLOb7f28Tnq0CmC7_BEDsiW12w/exec';
+const SECURITY_TOKEN = 'GDZ-INTELLIGENCE-2026';
+const ALLOWED_MIME = ['application/pdf','image/jpeg','image/png','image/jpg'];
+const MAX_BYTES = 5 * 1024 * 1024;
 
-/* ========= PROGRESS ========= */
-const sections = document.querySelectorAll('.observe');
-const progressBar = document.getElementById('progressBar');
+/* ── BASE64 FILE ENCODING ── */
+function getBase64(file){
+  return new Promise(resolve=>{
+    const r=new FileReader();
+    r.readAsDataURL(file);
+    r.onload=()=>resolve(r.result.split(',')[1]);
+  });
+}
 
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const index = [...sections].indexOf(entry.target)+1;
-      const percent = (index/sections.length)*100;
-      progressBar.style.width = percent + "%";
+async function buildFilePayloads(){
+  const cats=[
+    {id:'fu-arch',  label:'Architectural Plans'},
+    {id:'fu-site',  label:'Site Plans'},
+    {id:'fu-topo',  label:'Topography Maps'},
+    {id:'fu-img',   label:'Site Images'},
+    {id:'fu-other', label:'Other Documents'}
+  ];
+  let payloads=[],totalBytes=0,warnings=[];
+  for(const {id,label} of cats){
+    const inp=document.getElementById(id);
+    if(!inp||!inp.files.length) continue;
+    for(const file of inp.files){
+      if(!ALLOWED_MIME.includes(file.type)){warnings.push(file.name+': must be PDF, JPEG or PNG');continue;}
+      if(totalBytes+file.size>MAX_BYTES){warnings.push('5 MB limit reached — remaining files skipped');break;}
+      totalBytes+=file.size;
+      const base64=await getBase64(file);
+      payloads.push({name:file.name,mime:file.type,base64,category:label});
     }
-  })
-},{threshold:0.4});
-
-sections.forEach(section=>observer.observe(section));
-
-/* ========= AUTOSAVE ========= */
-const saveables = document.querySelectorAll('input.saveable, textarea.saveable, select.saveable');
-
-saveables.forEach(el=>{
-  el.addEventListener('input',saveDraft);
-});
-
-function saveDraft(){
-  const draft = {};
-  saveables.forEach(el => draft[el.id] = el.value);
-  draft.selectedChips = [...document.querySelectorAll('.chip.selected')].map(c=>c.innerText);
-  draft.selectedVisuals = [...document.querySelectorAll('.visual-card.selected')].map(v=>v.getAttribute('data-value'));
-  
-  localStorage.setItem('gdz_los_draft_v5', JSON.stringify(draft));
-}
-
-window.onload = ()=>{
-  const saved = JSON.parse(localStorage.getItem('gdz_los_draft_v5'));
-  if(saved){
-    saveables.forEach(el=>{
-      if(saved[el.id]){
-        el.value = saved[el.id];
-        // Trigger slider visual updates
-        if(el.type === 'range') {
-            const valDisplay = document.getElementById(el.id + 'Value');
-            if(valDisplay) valDisplay.innerText = el.value;
-        }
-      }
-    });
-
-    document.querySelectorAll('.chip').forEach(chip=>{
-      if(saved.selectedChips?.includes(chip.innerText)) chip.classList.add('selected');
-    });
-
-    document.querySelectorAll('.visual-card').forEach(card=>{
-      if(saved.selectedVisuals?.includes(card.getAttribute('data-value'))) card.classList.add('selected');
-    });
-
-    updateDynamic();
+    if(totalBytes>=MAX_BYTES) break;
   }
+  return {payloads,warnings,totalBytes};
 }
 
-/* ========= CHIPS & VISUALS ========= */
-document.querySelectorAll('.chip').forEach(chip=>{
-  chip.addEventListener('click',()=>{
-    chip.classList.toggle('selected');
-    saveDraft();
+/* ── FILE UPLOAD DISPLAY ── */
+const uploadedFiles={};
+function showFiles(input,statusId,boxId){
+  const files=[...input.files];
+  const box=document.getElementById(boxId);
+  const status=document.getElementById(statusId);
+  if(!files.length) return;
+  uploadedFiles[input.id]=files.map(f=>f.name);
+  status.textContent=files.length===1?files[0].name:files.length+' files';
+  box.classList.add('has-files');
+  updP();
+}
+
+/* ── MOOD CARD TOGGLE ── */
+function moodT(el,type){
+  el.classList.toggle('ml');
+  const grid=el.closest('.mood-grid');
+  const countEl=document.getElementById(type==='love'?'loveCount':'avoidCount');
+  const n=grid.querySelectorAll('.ml').length;
+  if(countEl) countEl.textContent=n?n+' style'+(n>1?'s':'')+' '+(type==='love'?'selected':'flagged'):'';
+  updP();
+}
+
+/* ── REFERENCE IMAGE PREVIEW ── */
+let refFiles=[];
+function previewRefs(files){refFiles=[...refFiles,...[...files]];renderRefs();updP();}
+function renderRefs(){
+  const grid=document.getElementById('refThumbs');
+  const count=document.getElementById('refCount');
+  const drop=document.getElementById('refDrop');
+  grid.innerHTML='';
+  refFiles.forEach((file,i)=>{
+    const r=new FileReader();
+    r.onload=e=>{
+      const d=document.createElement('div');
+      d.className='rth';
+      d.innerHTML=`<img src="${e.target.result}" alt="${file.name}"><button class="rth-x" onclick="removeRef(${i})" title="Remove">\u2715</button>`;
+      grid.appendChild(d);
+    };
+    r.readAsDataURL(file);
   });
-});
+  const n=refFiles.length;
+  count.textContent=n?'\u2756 '+n+' reference image'+(n>1?'s':'')+' uploaded':'';
+  drop.classList.toggle('has-refs',n>0);
+}
+function removeRef(i){refFiles.splice(i,1);renderRefs();updP();}
+function dragOver(e){e.preventDefault();document.getElementById('refDrop').classList.add('drag-on');}
+function dragLeave(){document.getElementById('refDrop').classList.remove('drag-on');}
+function dropRefs(e){
+  e.preventDefault();
+  document.getElementById('refDrop').classList.remove('drag-on');
+  const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/'));
+  if(files.length){refFiles=[...refFiles,...files];renderRefs();updP();}
+}
 
-document.querySelectorAll('.selectable-card').forEach(card=>{
-  card.addEventListener('click',()=>{
-    card.classList.toggle('selected');
-    saveDraft();
+/* ── STEPPER ── */
+function step(id,d){
+  const el=document.getElementById(id);
+  const di=document.getElementById(id+'D');
+  const v=Math.max(1,Math.min(20,parseInt(el.value)+d));
+  el.value=v;di.textContent=v;updP();
+}
+
+/* ── SLIDER ── */
+function slU(el){
+  const v=document.getElementById(el.id+'V');
+  if(v) v.textContent=el.value;
+  updP();
+}
+
+/* ── CHIPS ── */
+function ct(el){el.classList.toggle('on');updP();}
+function cx(el,grp){
+  document.getElementById(grp).querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');updP();
+}
+
+/* ── DYNAMIC SECTIONS ── */
+function ed(){
+  const sv=[...document.querySelectorAll('#cAgeC .chip.on')].map(c=>c.dataset.v);
+  const hc=sv.some(v=>v&&v!=='none');
+  document.getElementById('dyn-child').classList.toggle('on',hc);
+  if(hc){
+    document.getElementById('d05').style.display=sv.includes('0-5')?'block':'none';
+    document.getElementById('d612').style.display=sv.includes('6-12')?'block':'none';
+    document.getElementById('d1318').style.display=sv.includes('13-18')?'block':'none';
+  }
+  document.getElementById('dyn-el').classList.toggle('on',document.getElementById('elT').checked);
+  document.getElementById('dyn-pet').classList.toggle('on',document.getElementById('petT').checked);
+  updP();
+}
+
+/* ── PROGRESS (12 sections) ── */
+function updP(){
+  let done=0;
+  const s0=['c0name','c0email','c0phone','c0loc'];
+  if(s0.some(id=>document.getElementById(id)?.value?.trim())) done++;
+  document.querySelectorAll('.fs[data-s]').forEach(s=>{
+    const ds=s.dataset.s;
+    if(ds==='0'||ds==='mood'||ds==='sp') return;
+    if(s.querySelector('.chip.on')||[...s.querySelectorAll('input[type=range]')].some(r=>r.value!=r.defaultValue)) done++;
   });
-});
-
-/* ========= SLIDERS ========= */
-['wellness','luxury','nature','hosting','maintenance'].forEach(id=>{
-  const slider = document.getElementById(id);
-  const value = document.getElementById(id+'Value');
-  if(slider) {
-      slider.addEventListener('input',()=>{
-        value.innerText = slider.value;
-        saveDraft();
-      });
-  }
-});
-
-/* ========= FILES ========= */
-document.getElementById('projectFiles').addEventListener('change',(e)=>{
-  const files = e.target.files;
-  let totalSize = 0;
-  Array.from(files).forEach(f=>totalSize += f.size);
-
-  if(totalSize > 5 * 1024 * 1024){
-    alert("Total upload exceeds the 5MB limit. Please reduce file sizes.");
-    e.target.value = '';
-    document.getElementById('fileList').innerText = "";
-    isFileValid = false;
-    return;
-  }
-
-  document.getElementById('fileList').innerText = files.length + " file(s) prepared.";
-  isFileValid = true;
-});
-
-/* ========= DYNAMIC TOGGLES ========= */
-document.getElementById('childrenToggle').addEventListener('change',updateDynamic);
-document.getElementById('elderlyToggle').addEventListener('change',updateDynamic);
-document.getElementById('petsToggle').addEventListener('change',updateDynamic);
-
-function updateDynamic(){
-  document.getElementById('childSection').classList.toggle('active', document.getElementById('childrenToggle').value === 'Yes');
-  document.getElementById('elderlySection').classList.toggle('active', document.getElementById('elderlyToggle').value === 'Yes');
-  document.getElementById('petSection').classList.toggle('active', document.getElementById('petsToggle').value === 'Yes');
-  saveDraft();
+  if(document.querySelector('.mood-card.ml')||document.querySelector('#aestheticChips .chip.on')||refFiles.length>0) done++;
+  if(document.querySelector('#gfChips .chip.on')||document.querySelector('#trChips .chip.on')) done++;
+  if(Object.keys(uploadedFiles).length>0) done=Math.min(done+1,12);
+  const pct=Math.min(100,Math.round((done/12)*100));
+  document.getElementById('pFill').style.width=pct+'%';
+  document.getElementById('pLbl').textContent=done+' of 12 sections';
 }
 
-/* ========= DNA CIRCLE RENDER ========= */
-function setCircle(id,val){
-  const circle = document.getElementById(id);
-  circle.style.background = `conic-gradient(#2f6b46 ${val*10}%, #dce7dd 0%)`;
-  circle.innerText = val*10 + "%";
+/* ── HELPERS ── */
+function G(id){return document.getElementById(id)?.value||'';}
+function gChips(sel){return [...document.querySelectorAll(sel+' .chip.on')].map(c=>c.innerText).join('; ');}
+function getMoods(gId){return [...document.querySelectorAll('#'+gId+' .mood-card.ml')].map(c=>c.dataset.mood).join('; ');}
+
+/* ── GENERATE BRIEF ── */
+let generatedData={};
+
+function genBrief(){
+  const btn=document.getElementById('genBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span>\u23f3</span><span>Generating\u2026</span>';
+
+  const w=+G('w'),lu=+G('lu'),na=+G('na'),ho=+G('ho');
+  const fb=+G('fb'),pr=+G('pr'),ma=+G('ma'),ec=+G('ec');
+  const arch=G('arch'),op=+G('op'),nt=+G('nt'),stay=G('stay'),occ=G('occ');
+  const hasChild=!!document.querySelector('#cAgeC .chip.on:not([data-v="none"])');
+  const hasEl=document.getElementById('elT').checked;
+  const hasPet=document.getElementById('petT').checked;
+  const t5=+G('t5'),t6=+G('t6');
+
+  const pp=[...document.querySelectorAll('#ppC .chip.on')].map(c=>c.innerText);
+  const ap=[...document.querySelectorAll('#apC .chip.on')].map(c=>c.innerText);
+  const lc=[...document.querySelectorAll('#lcC .chip.on')].map(c=>c.innerText);
+  const sp=[...document.querySelectorAll('#spC .chip.on')].map(c=>c.innerText);
+  const fv=[...document.querySelectorAll('#fvC .chip.on')].map(c=>c.innerText);
+  const moodLikes=getMoods('moodLoveGrid');
+  const moodAvoids=getMoods('moodAvoidGrid');
+  const aestheticQ=[...document.querySelectorAll('#aestheticChips .chip.on')].map(c=>c.innerText);
+
+  /* SPATIAL PROGRAMMING */
+  const spatialData={
+    groundFloor: gChips('#gfChips')+(G('gfNotes')?' | '+G('gfNotes'):''),
+    terrace:     gChips('#trChips')+(G('trNotes')?' | '+G('trNotes'):''),
+    balcony:     gChips('#blChips')+(G('blNotes')?' | '+G('blNotes'):''),
+    basement:    gChips('#bsChips')+(G('bsNotes')?' | '+G('bsNotes'):'')
+  };
+
+  /* PERSONA */
+  let persona='',pdesc='',secondary='';
+  const scores={wellness:w,luxury:lu,nature:na,hosting:ho,bonding:fb,privacy:pr,maintenance:ma,ecology:ec};
+  const top=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+
+  if(w>=7&&na>=7){persona='Wellness-Oriented Nature Family';pdesc='This family values emotional restoration and ecological immersion above all else. The landscape should function as a therapeutic living environment \u2014 sensory, layered, and deeply alive. Every zone should contribute to physical and psychological wellbeing, from the arrival court to the most private garden corners.';}
+  else if(lu>=8&&ho>=7){persona='Luxury Hospitality Villa Family';pdesc='This family sees their landscape as a statement of refined taste and a stage for elevated social experience. The design must command quiet authority on arrival and deliver resort-calibre experiences across every zone.';}
+  else if(ec>=8&&na>=7){persona='Ecological Stewardship Family';pdesc='Sustainability and biodiversity are foundational values. This family wants their landscape to actively contribute to the urban ecosystem \u2014 native-led, climate-resilient, and rich in habitat value.';}
+  else if(fb>=7&&hasChild){persona='Family Activity-Centric Villa';pdesc='The landscape is a shared canvas for family life \u2014 safe, multi-generational, and richly layered with activity zones that evolve alongside the children.';}
+  else if(ma>=8){persona='Low-OPEX Pragmatist Family';pdesc='Operational efficiency and long-term resilience are paramount. Maximum beauty with minimum intervention \u2014 resilient native species, intelligent irrigation automation, and reduced lawn footprint.';}
+  else if(pr>=8){persona='Private Retreat Seeker Family';pdesc='Seclusion, spatial immersion, and intimate garden sequencing are the primary design drivers. This landscape should feel like a world apart \u2014 buffered, sheltered, and calm.';}
+  else{persona='Balanced Contemporary Villa Family';pdesc='This family holds multiple values in graceful balance \u2014 comfort, aesthetics, family functionality, and seasonal beauty. The landscape should be layered, adaptable, and beautifully maintained.';}
+
+  const s2=top[1];
+  if(s2[1]>=6){const sm={wellness:'with Wellness Sensibilities',luxury:'with Luxury Orientation',nature:'with Ecological Depth',hosting:'and Social Hosting Focus',bonding:'and Strong Family Focus',privacy:'and Privacy Priority',maintenance:'and Low-OPEX Intent',ecology:'and Ecological Values'};secondary=sm[s2[0]]||'';}
+
+  const recs=[];
+  if(w>=6){recs.push('Shaded contemplative seating zones');recs.push('Fragrant sensory planting corridors');}
+  if(lu>=7){recs.push('Premium arrival court sequencing');recs.push('Architectural ambient lighting integration');}
+  if(na>=6){recs.push('Multi-layered canopy planting strategy');recs.push('Bird and butterfly habitat corridor edges');}
+  if(ho>=6){recs.push('Flexible entertainment lawn zones');recs.push('Outdoor dining terrace with integrated lighting');}
+  if(ma>=7){recs.push('Automated drip irrigation system');recs.push('Native low-OPEX planting palette');recs.push('Reduced mowable lawn footprint');}
+  if(ec>=6){recs.push('Native species-first planting strategy');recs.push('Rainwater percolation zones and swales');}
+  if(pr>=7){recs.push('Dense boundary buffer planting');recs.push('Privacy screen planting at critical viewpoints');}
+  if(fb>=6){recs.push('Multi-generational gathering nodes');recs.push('Interactive edible / planting zones for family');}
+  if(hasChild){recs.push('Child-safe non-toxic planting palette');recs.push('Age-appropriate outdoor activity zones');}
+  if(hasEl){recs.push('Anti-slip universal access pathways');recs.push('Shaded therapy walking circuit');}
+  if(hasPet){recs.push('Pet-safe species selection throughout');recs.push('Durable lawn panels with pet wash station');}
+  if(op>=7) recs.push('Intimate enclosed courtyard rooms');
+  else if(op<=3) recs.push('Expansive open lawn for visual breathability');
+  if(nt>=7) recs.push('Naturalistic informal layered planting');
+  else if(nt<=3) recs.push('Structured formal planting geometry');
+  if(occ==='travel'){recs.push('Automated remote irrigation + monitoring');recs.push('Drought-resilient planting for unattended periods');}
+  if(t5>=7||t6>=6) recs.push('Premium ambient evening & night lighting design');
+
+  const contra=[];
+  if(ma>=7&&pp.includes('Bougainvillea')) contra.push({t:'Maintenance Mismatch',x:'Bougainvillea requires frequent pruning and generates significant flower drop. Consider less demanding alternatives if minimal upkeep is the goal.'});
+  if(ma>=7&&!ap.includes('Large Lawn Areas')&&ho>=6) contra.push({t:'Operational Reality \u2014 Lawn vs Maintenance',x:'High social hosting typically requires maintained lawn, conflicting with a low-maintenance preference. A phased lawn-reduction strategy with durable event hardscape is recommended.'});
+  if(pr>=8&&op<=3) contra.push({t:'Privacy vs Openness Tension',x:'Strong privacy requirements with open spatial preference need careful CPTED-informed zoning \u2014 dense boundary screening with preserved interior openness.'});
+  if(ec>=7&&pp.some(p=>['Foxtail Palm','Areca Palm'].includes(p))) contra.push({t:'Ecological Alignment Note',x:'Selected palms are non-native with limited biodiversity value. Supplementing with native canopy species will significantly strengthen ecological impact.'});
+  if(occ==='travel'&&ma<=4) contra.push({t:'Occupancy vs Maintenance Risk',x:'A high-maintenance palette with frequent travel absence creates significant operational risk. Automation and resilient species are essential baselines.'});
+
+  const AN={'contemporary-minimal':'Restrained monochromatic green palettes, clean geometric edges, and sculptural specimen plants. Hardscape quality is the dominant design statement.','tropical-modern':'Lush multi-layered tropical planting with dramatic foliage textures, water elements, and resort-grade hardscape.','classical-villa':'Symmetrical composition, formal clipped elements, avenue approach, and structured lawn panels with seasonal colour.','rustic-estate':'Loose naturalistic planting, rough stone detailing, kitchen garden integration, and mature fruit tree specimens.','modern-luxury':'High-contrast foliage, architectural specimens, premium stone hardscape, and layered ambient lighting.','courtyard-centric':'Contained courtyard garden rooms, vertical planting, filtered light, and water as a primary sensory element.','indo-contemporary':'Traditional sacred species with contemporary spatial framing \u2014 Tulsi courts, fragrant corridors, and vernacular plant species within a modern compositional language.'};
+  const SI={'5-10':'Medium-term focus. Prioritise fast-maturing canopy species and low establishment risk.','10-20':'Design for mature evolution. Legacy canopy specimens and layered succession planting are appropriate.','lifetime':'Design as a true legacy landscape. Invest in slow-growing heritage trees, food forests, and full ecological succession.','investment':'Design for perceived market value and minimum OPEX. Premium first impressions, resilient planting, and low operational cost.'};
+
+  /* ── STORE generatedData: matches full Apps Script schema ── */
+  generatedData={
+    securityToken: SECURITY_TOKEN,
+    timestamp: new Date().toISOString(),
+    formVersion: 'GDZ-LLD-v3',
+    // CLIENT_MASTER
+    clientName:     G('c0name'),
+    clientEmail:    G('c0email'),
+    clientPhone:    G('c0phone'),
+    projectLocation:G('c0loc'),
+    projectType:    G('c0type'),
+    siteArea:       G('c0area'),
+    architectName:  G('c0arch'),
+    // CONSULTANT_DATA
+    mepName:        G('mepName'),
+    structName:     G('structName'),
+    // SITE_INTELLIGENCE
+    siteSlope:      G('siteSlope'),
+    siteSoil:       G('siteSoil'),
+    existingTrees:  G('existingTrees'),
+    // BEHAVIORAL_PROFILE
+    wellness:w, luxury:lu, nature:na, hosting:ho, maintenance:ma,
+    familyBonding:fb, privacy:pr, ecology:ec,
+    pets:           hasPet?'Yes':'No',
+    elderly:        hasEl?'Yes':'No',
+    children:       hasChild?'Yes':'No',
+    // SPATIAL_PROGRAMMING
+    groundFloor:    spatialData.groundFloor,
+    terrace:        spatialData.terrace,
+    balcony:        spatialData.balcony,
+    basement:       spatialData.basement,
+    // PLANT_PREFERENCES
+    landscapeCharacter: lc.join('; '),
+    preferredPlants:    pp.join('; '),
+    undesiredPlants:    ap.join('; '),
+    // MOOD & AESTHETIC
+    moodLikes, moodAvoids,
+    aestheticQualities: aestheticQ.join('; '),
+    refImageCount:  refFiles.length,
+    refImageNames:  refFiles.map(f=>f.name).join('; '),
+    // ARCHITECTURE
+    architecture:   arch,
+    spatialOpenness:op,
+    plantingStyle:  nt,
+    prioritySpaces: sp.join('; '),
+    // LONG-TERM
+    futureVision:   fv.join('; '),
+    stayDuration:   stay,
+    occupancy:      occ,
+    // PERSONA
+    persona,
+    secondaryTrait: secondary,
+    uploadedDocCount: Object.keys(uploadedFiles).length,
+    uploadedDocNames: Object.entries(uploadedFiles).map(([k,v])=>k.replace('fu-','')+': '+v.join(', ')).join(' | ')||'None'
+  };
+
+  // Pre-fill submit area
+  if(G('c0name'))  document.getElementById('cName').value=G('c0name');
+  if(G('c0email')) document.getElementById('cEmail').value=G('c0email');
+  if(G('c0phone')) document.getElementById('cPhone').value=G('c0phone');
+  if(G('c0loc'))   document.getElementById('cProject').value=G('c0loc');
+
+  const now=new Date();
+  document.getElementById('bDate').textContent='Generated '+now.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})+' \u00b7 Greenscape Designz \u00b7 Confidential';
+  document.getElementById('bTitle').innerHTML=persona+(secondary?'<br><span style="font-size:0.6em;font-weight:300;font-style:italic;color:rgba(250,248,243,.6)">'+secondary+'</span>':'');
+
+  const sItems=[['Wellness & Calmness',w],['Luxury & Prestige',lu],['Nature Immersion',na],['Social Hosting',ho],['Family Bonding',fb],['Privacy',pr],['Ecological Values',ec],['Low Maintenance',ma]];
+  const hasSpatial=Object.values(spatialData).some(v=>v.length>3);
+
+  document.getElementById('bBody').innerHTML=`
+  <div class="bsec"><div class="bst">Client Landscape Persona</div>
+    <div class="ptag">\u2756 ${persona}</div>
+    <p class="pdesc">${pdesc}</p>
+  </div>
+  <div class="bsec"><div class="bst">Lifestyle Score Profile</div>
+    ${sItems.map(([n,v])=>`<div class="sci"><div class="scn">${n}</div><div class="scb"><div class="scf" style="width:${v*10}%"></div></div><div class="scv">${v}/10</div></div>`).join('')}
+  </div>
+  ${(moodLikes||moodAvoids||aestheticQ.length)?`<div class="bsec"><div class="bst">Landscape Mood \u0026 Character</div>
+    ${moodLikes?`<p style="font-size:.84rem;color:var(--im);margin-bottom:8px"><strong>Resonates With:</strong> ${moodLikes}</p>`:''}
+    ${moodAvoids?`<p style="font-size:.84rem;color:var(--il);margin-bottom:8px"><strong>To Avoid:</strong> ${moodAvoids}</p>`:''}
+    ${aestheticQ.length?`<p style="font-size:.84rem;color:var(--im);margin-top:4px"><strong>Aesthetic Priorities:</strong> ${aestheticQ.join(' \u00b7 ')}</p>`:''}
+    ${refFiles.length?`<p style="font-size:.84rem;color:var(--sage);margin-top:8px">\u2756 ${refFiles.length} personal reference image${refFiles.length>1?'s':''} provided</p>`:''}
+  </div>`:''}
+  <div class="bsec"><div class="bst">Architecture \u0026 Landscape Alignment</div>
+    <p style="font-size:.84rem;font-weight:500;color:var(--im);margin-bottom:8px">${arch.replace(/-/g,' ').replace(/\b\w/g,l=>l.toUpperCase())}</p>
+    <p style="font-size:.84rem;color:var(--il);line-height:1.75">${AN[arch]||'The landscape should complement and extend the architectural language with precision and intent.'}</p>
+  </div>
+  ${hasSpatial?`<div class="bsec"><div class="bst">Spatial Programming by Level</div>
+    ${spatialData.groundFloor?`<p style="font-size:.84rem;color:var(--im);margin-bottom:6px"><strong>Ground Realm:</strong> ${spatialData.groundFloor}</p>`:''}
+    ${spatialData.terrace?`<p style="font-size:.84rem;color:var(--im);margin-bottom:6px"><strong>Terrace / Rooftop:</strong> ${spatialData.terrace}</p>`:''}
+    ${spatialData.balcony?`<p style="font-size:.84rem;color:var(--im);margin-bottom:6px"><strong>Balcony / Upper Level:</strong> ${spatialData.balcony}</p>`:''}
+    ${spatialData.basement?`<p style="font-size:.84rem;color:var(--im);margin-bottom:6px"><strong>Basement / Courtyard:</strong> ${spatialData.basement}</p>`:''}
+  </div>`:''}
+  <div class="bsec"><div class="bst">Recommended Landscape Strategies</div>
+    <div class="rg">${recs.slice(0,12).map(r=>`<div class="ri"><div class="rd"></div>${r}</div>`).join('')}</div>
+  </div>
+  ${sp.length?`<div class="bsec"><div class="bst">Priority Spaces</div><div class="chips" style="pointer-events:none">${sp.map(s=>`<div class="chip on">${s}</div>`).join('')}</div></div>`:''}
+  ${(pp.length||ap.length)?`<div class="bsec"><div class="bst">Planting Language Guidance</div>${pp.length?`<p style="font-size:.84rem;color:var(--im);margin-bottom:8px"><strong>Include:</strong> ${pp.join(', ')}</p>`:''} ${ap.length?`<p style="font-size:.84rem;color:var(--il);margin-bottom:8px"><strong>Avoid:</strong> ${ap.join(', ')}</p>`:''} ${lc.length?`<p style="font-size:.84rem;color:var(--im);margin-top:4px"><strong>Desired Character:</strong> ${lc.join(' \u00b7 ')}</p>`:''}</div>`:''}
+  ${contra.length?`<div class="bsec"><div class="bst">\u26a0 Expectation Alignment Notes</div>${contra.map(c=>`<div class="cb"><div class="ct">${c.t}</div><div class="cx">${c.x}</div></div>`).join('')}</div>`:''}
+  <div class="bsec"><div class="bst">Long-Term Vision</div>
+    <p style="font-size:.84rem;color:var(--il);line-height:1.75;margin-bottom:12px">${SI[stay]||''}</p>
+    ${fv.length?`<div class="chips" style="pointer-events:none">${fv.map(v=>`<div class="chip on">${v}</div>`).join('')}</div>`:''}
+  </div>
+  <div class="bsec"><div class="bst">Design Direction Statement</div>
+    <p style="font-size:.88rem;color:var(--im);line-height:1.85">The proposed landscape should evolve as a living, performative extension of the architecture \u2014 responding to how this family truly lives. It should balance <strong>${persona.toLowerCase()}</strong> values with long-term operational resilience, seasonal beauty, and spatial generosity. Every zone purposeful, every plant selection intentional \u2014 maturing gracefully as the most meaningful room in the home.</p>
+  </div>
+  <div class="fbtns">
+    <button class="btn-o" onclick="window.print()">\ud83d\udda8 Print / Save PDF</button>
+    <button class="btn-o" onclick="document.getElementById('bOut').classList.remove('on');window.scrollTo({top:0,behavior:'smooth'})">\u2191 Edit Responses</button>
+  </div>`;
+
+  document.getElementById('bOut').classList.add('on');
+  setTimeout(()=>document.getElementById('bOut').scrollIntoView({behavior:'smooth',block:'start'}),120);
+  btn.disabled=false;
+  btn.innerHTML='<span>\u2756</span><span>Generate My Landscape Lifestyle Brief</span>';
 }
 
-/* ========= BASE64 HELPER ========= */
-const getBase64 = (file) => new Promise((resolve, reject) => {
-  const reader = new FileReader(); 
-  reader.readAsDataURL(file);
-  reader.onload = () => resolve({ name: file.name, mime: file.type, base64: reader.result.split(',')[1], category: 'Architectural' });
-  reader.onerror = e => reject(e);
+/* ── SUBMIT TO APPS SCRIPT ── */
+async function submitSheet(){
+  const name =document.getElementById('cName').value.trim();
+  const phone=document.getElementById('cPhone').value.trim();
+  const email=document.getElementById('cEmail').value.trim();
+  const project=document.getElementById('cProject').value.trim();
+
+  if(!name&&!phone&&!email){setStatus('Please enter at least your name or contact number.','err');return;}
+
+  const btn=document.getElementById('sheetBtn');
+  btn.disabled=true;
+  btn.innerHTML='<span>\u23f3</span><span>Uploading files \u0026 submitting\u2026</span>';
+  setStatus('','');
+
+  const {payloads,warnings,totalBytes}=await buildFilePayloads();
+  if(warnings.length) setStatus('\u26a0 '+warnings.join(' | '),'err');
+
+  const payload={
+    ...generatedData,
+    clientName:   name  ||generatedData.clientName,
+    clientEmail:  email ||generatedData.clientEmail,
+    clientPhone:  phone ||generatedData.clientPhone,
+    projectLocation:project||generatedData.projectLocation,
+    files:        payloads,
+    fileCount:    payloads.length,
+    totalUploadKB:Math.round(totalBytes/1024)
+  };
+
+  /* Try regular fetch first to get Project ID back from Apps Script */
+  try{
+    const res=await fetch(SCRIPT_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const json=await res.json();
+    if(json.status==='success'){
+      setStatus('\u2756 Submitted. Your Project ID: '+json.projectId+'. A design brief PDF will be emailed to you shortly.','ok');
+      btn.innerHTML='<span>\u2713</span><span>Submitted \u2014 '+json.projectId+'</span>';
+      // Update brief header with Project ID
+      const bDate=document.getElementById('bDate');
+      if(bDate) bDate.textContent=bDate.textContent+' \u00b7 '+json.projectId;
+    } else {
+      throw new Error(json.message||'Submission error from server');
+    }
+  }catch(e){
+    /* Fallback: no-cors mode — data still reaches the sheet but no Project ID returned */
+    try{
+      await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      setStatus('\u2756 Brief submitted to Greenscape Designz. You will receive a confirmation email with your design brief shortly.','ok');
+      btn.innerHTML='<span>\u2713</span><span>Submitted</span>';
+    }catch(e2){
+      setStatus('Submission failed. Please email studio@greenscapedesignz.in directly.','err');
+      btn.disabled=false;
+      btn.innerHTML='<span>\u2756</span><span>Submit to Studio</span>';
+    }
+  }
+}
+
+function setStatus(msg,cls){
+  const el=document.getElementById('sStat');
+  el.textContent=msg;
+  el.className='submit-status'+(cls?' '+cls:'');
+}
+
+/* ── INIT ── */
+['c0name','c0email','c0phone','c0loc','c0area','c0arch','mepName','structName','siteSlope','siteSoil','existingTrees'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.addEventListener('input',updP);
 });
-
-function getChipString(containerId) {
-    const el = document.getElementById(containerId);
-    if(!el) return "";
-    return Array.from(el.querySelectorAll('.chip.selected')).map(c => c.innerText).join(', ');
-}
-
-/* ========= MAIN SUBMISSION API ========= */
-async function generateBrief(){
-  const name = document.getElementById('clientName').value.trim();
-  const email = document.getElementById('clientEmail').value.trim();
-  
-  if(!name || !email) {
-      alert("Client Name and Email Address are required to generate the brief.");
-      return;
-  }
-  
-  if (!isFileValid) {
-      alert("Please resolve the file size limit before submitting.");
-      return;
-  }
-
-  const loader = document.getElementById('loader');
-  const loaderSubtitle = document.getElementById('loaderSubtitle');
-  loader.style.display = 'flex';
-
-  try {
-      // 1. Process files
-      loaderSubtitle.innerText = "Encrypting documents and blueprints...";
-      const fileInput = document.getElementById('projectFiles');
-      let filePayloads = [];
-      if (fileInput.files.length > 0) {
-        filePayloads = await Promise.all(Array.from(fileInput.files).map(f => getBase64(f)));
-      }
-
-      // 2. Map Visual Cards
-      const visualMoods = Array.from(document.querySelectorAll('.visual-card.selected')).map(v => v.getAttribute('data-value')).join(', ');
-      
-      // 3. Map Dynamic Details
-      let petsInput = document.getElementById('petsToggle').value;
-      if(petsInput === 'Yes') petsInput = "Yes - " + getChipString('petChips');
-      
-      let elderlyInput = document.getElementById('elderlyToggle').value;
-      if(elderlyInput === 'Yes') elderlyInput = "Yes - " + getChipString('elderlyChips');
-
-      // 4. Construct Payload matching the Apps Script Schema
-      loaderSubtitle.innerText = "Securing Intelligence & Generating RIBA Stage 0-1 PDF...";
-      const payload = {
-          securityToken: SECURE_TOKEN,
-          clientName: name, 
-          clientEmail: email, 
-          clientPhone: document.getElementById('clientPhone').value,
-          projectLocation: document.getElementById('projectLocation').value, 
-          projectType: document.getElementById('projectType').value,
-          siteArea: document.getElementById('siteArea').value, 
-          architectName: document.getElementById('architectName').value, 
-          mepName: "Not Specified", // Placeholder if you add it later
-          
-          siteSlope: document.getElementById('siteSlope').value, 
-          siteSoil: document.getElementById('siteSoil').value, 
-          existingTrees: document.getElementById('existingTrees').value,
-          
-          wellness: document.getElementById('wellness').value, 
-          luxury: document.getElementById('luxury').value,
-          pets: petsInput,
-          elderly: elderlyInput, 
-          maintenance: document.getElementById('maintenance').value,
-          
-          groundFloor: document.getElementById('groundFloor').value, 
-          terrace: document.getElementById('terrace').value,
-          // We combine Visual Moods + Plant Preferences + Future Vision into the generic Character field
-          landscapeCharacter: [visualMoods, getChipString('preferredPlants'), getChipString('futureVision')].filter(Boolean).join(' | '),
-          undesiredPlants: getChipString('undesiredPlants'),
-          customInputs: document.getElementById('customInputs').value,
-          files: filePayloads
-      };
-
-      // 5. Fire off to Google Apps Script
-      const response = await fetch(SCRIPT_URL, { 
-          method: 'POST', 
-          mode: 'cors', 
-          headers: { 'Content-Type': 'text/plain' }, 
-          body: JSON.stringify(payload) 
-      });
-        
-      const result = await response.json();
-        
-      if (result.status === "success") {
-          // Hide Loader
-          loader.style.display = 'none';
-          
-          // Render the Local DNA Module
-          const wellness = parseInt(document.getElementById('wellness').value);
-          const luxury = parseInt(document.getElementById('luxury').value);
-          const nature = parseInt(document.getElementById('nature').value);
-          const hosting = parseInt(document.getElementById('hosting').value);
-          const maintenance = parseInt(document.getElementById('maintenance').value);
-
-          setCircle('wellnessCircle', wellness);
-          setCircle('luxuryCircle', luxury);
-          setCircle('natureCircle', nature);
-          setCircle('hostingCircle', hosting);
-
-          // Populate strategies based on the DNA
-          let strategies = [];
-          if(wellness > 7 && nature > 7){
-            strategies.push("Layered shaded microclimates");
-            strategies.push("Sensory and therapeutic planting");
-            strategies.push("Meditative experiential sequencing");
-          }
-          if(luxury > 7 && hosting > 7){
-            strategies.push("Premium arrival choreography");
-            strategies.push("Entertainment-driven outdoor zoning");
-            strategies.push("Architectural lighting integration");
-          }
-          if(maintenance > 7){
-            strategies.push("Low-OPEX native adaptive planting");
-            strategies.push("Reduced lawn footprint");
-            strategies.push("Automated irrigation systems");
-          }
-          if(strategies.length === 0){
-             strategies.push("Integrated indoor-outdoor flow");
-             strategies.push("Drought-tolerant structural planting");
-          }
-
-          document.getElementById('refId').innerText = result.projectId;
-          document.getElementById('personaText').innerText = result.persona;
-          document.getElementById('strategyText').innerHTML = `<ul>${strategies.map(s=>`<li>${s}</li>`).join('')}</ul>`;
-
-          // Reveal DNA Section & Scroll
-          document.getElementById('dnaSection').style.display = 'block';
-          localStorage.removeItem('gdz_los_draft_v5');
-          
-          window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: 'smooth'
-          });
-
-      } else {
-          throw new Error(result.message);
-      }
-
-  } catch (error) {
-      loader.style.display = 'none';
-      alert("Transmission Failed: " + error.message + "\n\nPlease try again or contact the studio.");
-  }
-}
+updP();
 </script>
-
 </body>
 </html>
